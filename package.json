@@ -1,0 +1,71 @@
+{
+  "name": "gatsby-starter-bootstrap",
+  "private": true,
+  "dependencies": {
+    "gatsby": "2.19.12",
+    "gatsby-image": "2.2.40",
+    "gatsby-plugin-catch-links": "2.1.25",
+    "gatsby-plugin-feed": "2.3.27",
+    "gatsby-plugin-google-analytics": "2.1.35",
+    "gatsby-plugin-manifest": "2.2.41",
+    "gatsby-plugin-netlify": "2.1.32",
+    "gatsby-plugin-react-helmet": "3.1.22",
+    "gatsby-plugin-sass": "^2.1.28",
+    "gatsby-plugin-sharp": "2.4.5",
+    "gatsby-plugin-sitemap": "2.2.27",
+    "gatsby-remark-copy-linked-files": "2.1.37",
+    "gatsby-remark-images": "3.1.44",
+    "gatsby-remark-prismjs": "3.3.31",
+    "gatsby-remark-responsive-iframe": "2.2.32",
+    "gatsby-source-filesystem": "2.1.48",
+    "gatsby-transformer-remark": "2.6.50",
+    "gatsby-transformer-sharp": "2.3.14",
+    "react": "16.12.0",
+    "react-bootstrap": "^1.0.0-beta.12",
+    "react-dom": "16.12.0",
+    "react-helmet": "5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "@types/react": "^16.9.19",
+    "babel-eslint": "10.0.3",
+    "bootstrap": "4.4.1",
+    "emergence.js": "1.1.2",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "husky": "4.2.1",
+    "lint-staged": "10.0.7",
+    "lodash": "4.17.15",
+    "modern-normalize": "0.6.0",
+    "node-sass": "4.13.1",
+    "prettier": "1.19.1",
+    "prismjs": "1.19.0"
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start": "yarn develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "serve": "gatsby clean && gatsby build && gatsby serve",
+    "format": "prettier --write \"**/*.+(js|json|md)\"",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
