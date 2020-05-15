@@ -1,50 +1,62 @@
 {
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "prettier",
-    "prettier/react"
-  ],
-  "parser": "babel-eslint",
-  "settings": {
-    "import/core-modules": ["gatsby"],
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "src"
-        ]
-      }
-    }
-  },
+  "parser": "@typescript-eslint/parser",
   "env": {
-    "node": true,
     "browser": true,
+    "es6": true,
+    "node": true,
     "jest": true
   },
-  "globals": {
-    "graphql": true
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
   },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "react-hooks"],
   "rules": {
-    "react/prop-types": 0,
-    "react/jsx-filename-extension": 0,
-    "jsx-a11y/accessible-emoji": 0,
-    "jsx-a11y/href-no-hash": 0,
-    "jsx-a11y/anchor-is-valid": [
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "react/button-has-type": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "react/no-unescaped-entities": "off",
+    "import/no-extraneous-dependencies": [
       "error",
+      { "devDependencies": ["**/*.test.ts"] }
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
       {
-        "components": ["Link"],
-        "specialLink": ["to"],
-        "aspects": ["noHref", "invalidHref", "preferButton"]
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ],
-    "jsx-a11y/label-has-associated-control": "warn",
-    "jsx-a11y/label-has-for": "warn",
-    "react/jsx-props-no-spreading": "warn",
-    "react/no-danger": 0,
-    "react/no-unescaped-entities": 0
-  },
-  "plugins": [
-    "prettier",
-    "react"
-  ]
+    "@typescript-eslint/interface-name-prefix": [
+      "off",
+      { "prefixWithI": "always" }
+    ]
+  }
 }

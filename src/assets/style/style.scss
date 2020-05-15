@@ -1,7 +1,7 @@
-// Bootstrap
-@import "base/variables";
-@import "~bootstrap/scss/bootstrap";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "base/mixins";
-@import "base/layout";
-@import "base/typography";
+body {
+  @apply bg-muted-100;
+}

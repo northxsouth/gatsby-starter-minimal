@@ -1,93 +1,72 @@
+const config = require('./config/SiteConfig');
+
+
 module.exports = {
   siteMetadata: {
-    title: "Gatstrap",
-    description: "Gatsby starter for bootstrap a blog",
-    siteUrl: "https://gatstrap.netlify.com",
-    author: "jaxx2104",
-    twitter: "jaxx2104",
-    adsense: ""
+    pathPrefix: config.pathPrefix,
+    siteTitle: config.siteMetaData.siteTitle,
+    description: config.siteMetaData.description,
+    siteUrl: config.baseUrl + config.pathPrefix,
   },
-  pathPrefix: "/",
+  pathPrefix: '/',
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/assets/images/`,
-        name: "images"
-      }
+      resolve: 'gatsby-plugin-typescript',
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-plugin-graphql-codegen',
       options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 750,
-              linkImagesToOriginal: false,
-              wrapperStyle: "margin-bottom: 1.0725rem;"
-            }
-          },
-          {
-            resolve: "gatsby-remark-responsive-iframe",
-            options: {
-              wrapperStyle: "margin-bottom: 1.0725rem"
-            }
-          },
-          "gatsby-remark-prismjs",
-          "gatsby-remark-copy-linked-files"
-        ]
-      }
+        documentPaths: [
+          './src/**/*.{js,ts,tsx}',
+          // './.cache/fragments/*.js',
+          './node_modules/gatsby-*/**/*.js',
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/assets/images/`,
+        name: 'images',
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Gatstrap",
-        short_name: "Gatstrap",
-        description: "Gatsby starter for bootstrap a blog",
-        homepage_url: "https://gatstrap.netlify.com",
-        start_url: "/",
-        background_color: "#fff",
-        theme_color: "#673ab7",
-        display: "standalone",
-        icons: [
-          {
-            src: "/img/android-chrome-192x192.png",
-            sizes: "192x192",
-            type: "image/png"
-          },
-          {
-            src: "/img/android-chrome-512x512.png",
-            sizes: "512x512",
-            type: "image/png"
-          }
-        ]
-      }
+        name: config.siteMetaData.siteTitle,
+        short_name: config.siteMetaData.titleShort,
+        description: config.siteMetaData.description,
+        homepage_url: config.baseUrl,
+        start_url: config.pathPrefix,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+      },
     },
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: ""
-      }
+      resolve: 'gatsby-plugin-google-analytics',
+      options: config.googleAnalytics,
     },
     {
-      resolve: "gatsby-plugin-netlify",
+      resolve: 'gatsby-plugin-netlify',
       options: {
         mergeSecurityHeaders: true,
         mergeLinkHeaders: true,
-        mergeCachingHeaders: true
-      }
+        mergeCachingHeaders: true,
+      },
     },
-    "gatsby-plugin-catch-links",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: "gatsby-plugin-sass",
+      resolve: 'gatsby-plugin-sass',
       options: {
-        precision: 8
-      }
+        postCssPlugins: [
+          require('tailwindcss'),
+          require('./tailwind.config.js'),
+        ],
+      },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-sitemap",
-    "gatsby-transformer-sharp"
-  ]
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-transformer-sharp',
+  ],
 };
