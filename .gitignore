@@ -8,3 +8,4 @@ public
 graphql-types.ts
 .env*
 !.env.sample
+src/assets/style/_tailwindvars.scss

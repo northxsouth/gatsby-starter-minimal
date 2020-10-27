@@ -44,6 +44,7 @@
     "lodash": "4.17.20",
     "node-sass": "4.14.1",
     "prettier": "^2.1.2",
+    "tailwindcss-export-config": "^2.3.0",
     "ts-jest": "^26.4.2",
     "typescript": "^4.0.3"
   },
@@ -55,7 +56,10 @@
   },
   "scripts": {
     "start": "yarn dev",
+    "prebuild": "yarn tailwind:export",
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "tailwind:export": "tailwindcss-export-config --config=./tailwind.config.js --destination=./src/assets/style/_tailwindvars  --format=scss --quoted-keys=true && prettier src/assets/style/_tailwindvars.scss -w",
+    "predev": "yarn tailwind:export",
     "dev": "ENABLE_GATSBY_REFRESH_ENDPOINT=1 gatsby develop",
     "lint": "eslint src/**/* --fix --ext .ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
