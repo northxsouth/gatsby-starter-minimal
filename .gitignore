@@ -6,3 +6,5 @@ public
 .cache/
 .vscode/
 graphql-types.ts
+.env*
+!.env.sample

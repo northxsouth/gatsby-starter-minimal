@@ -1,5 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
+  "root": true,
   "env": {
     "browser": true,
     "es6": true,
@@ -7,11 +8,13 @@
     "jest": true
   },
   "extends": [
-    "plugin:react/recommended",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
     "plugin:prettier/recommended",
     "prettier/react",
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended"
+    "prettier/@typescript-eslint"
   ],
   "settings": {
     "react": {
@@ -30,7 +33,13 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "import",
+    "@typescript-eslint"
+  ],
   "rules": {
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "warn",
@@ -40,7 +49,12 @@
     "react/no-unescaped-entities": "off",
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.test.ts"] }
+      {
+        "devDependencies": [
+          "**/*.test{.ts,.tsx}",
+          "**/*.spec{.ts,.tsx}"
+        ]
+      }
     ],
     "import/prefer-default-export": "off",
     "import/extensions": [
@@ -56,7 +70,15 @@
     ],
     "@typescript-eslint/interface-name-prefix": [
       "off",
-      { "prefixWithI": "always" }
-    ]
+      {
+        "prefixWithI": "always"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "class-methods-use-this": "warn",
+    "@typescript-eslint/no-useless-constructor": "off",
+    "react/jsx-key": "warn",
+    "@typescript-eslint/no-empty-interface": "warn"
   }
 }

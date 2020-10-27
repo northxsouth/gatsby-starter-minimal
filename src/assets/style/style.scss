@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-muted-100;
+@layer base {
+  body,
+  html {
+    @apply h-full overflow-x-hidden;
+  }
+
+  #___gatsby,
+  #gatsby-focus-wrapper {
+    display: contents;
+  }
 }

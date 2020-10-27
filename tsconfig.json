@@ -17,5 +17,5 @@
     "noImplicitAny": false,
     "strictNullChecks": false
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./config/**/*", "./gatsby*.js"]
 }

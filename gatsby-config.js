@@ -1,14 +1,10 @@
-const config = require('./config/SiteConfig');
-
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { siteMetadata, manifestOptions, googleAnalytics, pathPrefix } = require('./config/SiteConfig');
 
 module.exports = {
-  siteMetadata: {
-    pathPrefix: config.pathPrefix,
-    siteTitle: config.siteMetaData.siteTitle,
-    description: config.siteMetaData.description,
-    siteUrl: config.baseUrl + config.pathPrefix,
-  },
-  pathPrefix: '/',
+  siteMetadata,
+  pathPrefix,
   plugins: [
     {
       resolve: 'gatsby-plugin-typescript',
@@ -18,9 +14,8 @@ module.exports = {
       options: {
         documentPaths: [
           './src/**/*.{js,ts,tsx}',
-          // './.cache/fragments/*.js',
-          './node_modules/gatsby-*/**/*.js',
-        ],
+          './node_modules/gatsby-transformer-sharp/**/*.js',
+        ]
       },
     },
     {
@@ -32,19 +27,11 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: config.siteMetaData.siteTitle,
-        short_name: config.siteMetaData.titleShort,
-        description: config.siteMetaData.description,
-        homepage_url: config.baseUrl,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-      },
+      options: manifestOptions,
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
-      options: config.googleAnalytics,
+      options: googleAnalytics,
     },
     {
       resolve: 'gatsby-plugin-netlify',
@@ -68,5 +55,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-graphql-config'
   ],
 };

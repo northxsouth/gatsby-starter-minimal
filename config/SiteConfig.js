@@ -1,36 +1,80 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
+/* eslint-disable import/no-extraneous-dependencies */
 
-const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
+require('dotenv').config();
+const package = require('../package.json');
 
-require('dotenv').config({
-  path: activeEnv === 'development' ? `.env.development` : '.env',
-});
+const { CONTEXT, DEPLOY_PRIME_URL, GATSBY_ACTIVE_ENV, NODE_ENV } = process.env;
 
-const baseUrl =
-  process.env.CONTEXT === 'production'
-    ? process.env.BASE_URL || 'https://naughty-leavitt-12b136.netlify.app'
-    : process.env.DEPLOY_PRIME_URL ||
-      process.env.BASE_URL ||
-      'https://naughty-leavitt-12b136.netlify.app';
+const BUILD_CONTEXT = GATSBY_ACTIVE_ENV || NODE_ENV || CONTEXT || 'development';
 
-console.log(`Using environment config: '${activeEnv}'`);
+console.log('Using environment config', { BUILD_CONTEXT });
 
-const siteMetaData = {
-  siteTitle: 'Gatsby Starter - Tailwind & TS', // Site title.
+// BEGIN CONFIG HERE
+
+const URL = 'https://gatsby-starter-minimal.netlify.app';
+const DEFAULT_DEV_URL = 'http://localhost:8000';
+
+const getBaseUrl = () => {
+  if (BUILD_CONTEXT === 'production') {
+    return URL;
+  }
+  if (DEPLOY_PRIME_URL) {
+    return DEPLOY_PRIME_URL;
+  }
+  return DEFAULT_DEV_URL;
+};
+
+const pathPrefix = '/';
+
+const baseUrl = getBaseUrl() + pathPrefix;
+
+const social = {
+  twitter: {
+    username: 'northxsouth_co',
+  },
+  facebook: {
+    username: 'northxsouth.co',
+  },
+  instagram: {
+    username: 'northxsouth.co',
+  },
+};
+
+const siteMetadata = {
+  title: 'Gatsby Starter - Tailwind & TS', // Site title.
   titleShort: 'Tailwind & TS Starter', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   description: 'Starter gatsby application', // Website description used for RSS feeds/meta description tag.
+  pathPrefix,
+  siteUrl: baseUrl,
+  buildContext: BUILD_CONTEXT,
+  version: package.version,
+  social,
+};
+
+const googleAnalytics = {
+  trackingId: process.env.GOOGLE_ANALYTICS_ID,
+  anonymize: true,
+  respectDNT: true,
+};
+
+const manifestOptions = {
+  name: siteMetadata.siteTitle,
+  short_name: siteMetadata.titleShort,
+  description: siteMetadata.description,
+  homepage_url: baseUrl,
+  start_url: pathPrefix,
+  background_color: '#fff',
+  theme_color: '#48695f',
 };
 
 module.exports = {
   baseUrl,
-  siteMetaData,
-  pathPrefix: '/',
-  backgroundColor: '#fff',
-  themeColor: '#48695f',
-  googleAnalytics: {
-    trackingId: 'UA-',
-    anonymize: true,
-    respectDNT: true,
-  },
+  siteMetadata,
+  pathPrefix,
+  googleAnalytics,
+  social,
+  manifestOptions,
 };
