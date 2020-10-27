@@ -77,6 +77,7 @@ const theme = {
 
 const variants = {
   borderWidth: ['responsive', 'first'],
+  margin: ['responsive', 'last'],
 };
 
 const plugins = [];
