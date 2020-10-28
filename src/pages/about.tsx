@@ -12,7 +12,7 @@ interface IAboutPageProps {
 const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
   <Layout location={location} title="About">
     <section className="text-gray-700 body-font">
-      <div className="container flex flex-col px-5 py-24 mx-auto">
+      <div className="container flex flex-col px-5 py-12 mx-auto md:py-24">
         <div className="mx-auto lg:w-4/6">
           <div className="h-64 overflow-hidden rounded-lg shadow">
             <Img

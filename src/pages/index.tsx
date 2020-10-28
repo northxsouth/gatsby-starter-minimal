@@ -12,9 +12,9 @@ interface IHomepageProps {
 const HomePage: React.FC<IHomepageProps> = ({ location, data }) => (
   <Layout location={location}>
     <section className="text-gray-700 body-font">
-      <div className="container flex flex-col items-center px-5 py-24 mx-auto md:flex-row">
-        <div className="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
-          <h1 className="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">
+      <div className="container flex flex-col items-center px-5 py-6 mx-auto sm:py-12 md:py-24 md:flex-row">
+        <div className="flex flex-col items-center mb-12 text-center md:mb-16 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
+          <h1 className="mb-4 text-3xl font-medium leading-tight text-gray-900 title-font sm:text-4xl">
             Hero Element Title
           </h1>
           <p className="mb-8 leading-relaxed">
