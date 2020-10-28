@@ -1,25 +1,29 @@
+import { graphql } from 'gatsby';
 import React from 'react';
+import Img from 'gatsby-image';
 import { Layout } from '../components/Layout';
+import { AboutQueryQuery } from '../../graphql-types';
 
 interface IAboutPageProps {
   location: Location;
+  data: AboutQueryQuery;
 }
 
-const AboutPage: React.FC<IAboutPageProps> = ({ location }) => (
+const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
   <Layout location={location} title="About">
     <section className="text-gray-700 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-col">
-        <div className="lg:w-4/6 mx-auto">
-          <div className="rounded-lg h-64 overflow-hidden">
-            <img
-              alt="content"
-              className="object-cover object-center h-full w-full"
-              src="https://dummyimage.com/1200x500"
+      <div className="container flex flex-col px-5 py-24 mx-auto">
+        <div className="mx-auto lg:w-4/6">
+          <div className="h-64 overflow-hidden rounded-lg shadow">
+            <Img
+              fluid={data.headerImage.childImageSharp.fluid}
+              alt="Abstract image by Sean W. Sinclair"
+              className="object-cover object-center w-full h-full"
             />
           </div>
-          <div className="flex flex-col sm:flex-row mt-10">
-            <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-              <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+          <div className="flex flex-col mt-10 sm:flex-row">
+            <div className="text-center sm:w-1/3 sm:pr-8 sm:py-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 text-gray-400 bg-gray-200 rounded-full">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -33,28 +37,27 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location }) => (
                   <circle cx="12" cy="7" r="4" />
                 </svg>
               </div>
-              <div className="flex flex-col items-center text-center justify-center">
-                <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
-                  North x South
+              <div className="flex flex-col items-center justify-center text-center">
+                <h2 className="mt-4 text-lg font-medium text-gray-900 title-font">
+                  Company Name
                 </h2>
-                <div className="w-12 h-1 bg-primary-500 rounded mt-2 mb-4" />
+                <div className="w-12 h-1 mt-2 mb-4 rounded bg-primary-500" />
                 <p className="text-base text-gray-600">
-                  Raclette knausgaard hella meggs normcore williamsburg enamel
-                  pin sartorial venmo tbh hot chicken gentrify portland.
+                  Grey yellow lime, light rainbow, navy blue red magenta mint
+                  blue plum.
                 </p>
               </div>
             </div>
-            <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-300 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="leading-relaxed text-lg mb-4">
-                Meggings portland fingerstache lyft, post-ironic fixie man bun
-                banh mi umami everyday carry hexagon locavore direct trade art
-                party. Locavore small batch listicle gastropub farm-to-table
-                lumbersexual salvia messenger bag. Coloring book flannel
-                truffaut craft beer drinking vinegar sartorial, disrupt fashion
-                axe normcore meh butcher. Portland 90's scenester vexillologist
-                forage post-ironic asymmetrical, chartreuse disrupt butcher
-                paleo intelligentsia pabst before they sold out four loko. 3
-                wolf moon brooklyn.
+            <div className="pt-4 mt-4 text-center border-t border-gray-300 sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left">
+              <p className="mb-0 text-lg leading-relaxed">
+                Rainbow cyan fuchsia, silver navy blue plum dark aqua. Purple
+                white orange swatch, olive gray blue, neon crimson silver
+                charcoal hot pink grey mint saturation. Plum hue purple coral,
+                yellow rainbow pastel, black grey teal saturation orange lime
+                light fuchsia. Rainbow teal, dark hue bright aquamarine. Light
+                teal persimmon, magenta rainbow, navy blue olive red saturation
+                fuchsia. Orange olive red, magenta wheat, purple khaki
+                aquamarine teal persimmon hot pink charcoal.
               </p>
             </div>
           </div>
@@ -62,7 +65,7 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location }) => (
       </div>
     </section>
 
-    <section className="text-gray-700 body-font relative">
+    <section className="relative text-gray-700 body-font">
       <div className="absolute inset-0 bg-gray-300">
         <iframe
           width="100%"
@@ -75,34 +78,52 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location }) => (
           src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Chicago&ie=UTF8&t=&z=14&iwloc=B&output=embed"
         />
       </div>
-      <div className="container px-5 py-24 mx-auto flex">
-        <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10">
-          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
+      <div className="container flex px-5 py-24 mx-auto">
+        <div className="relative z-10 flex flex-col w-full p-8 mt-10 bg-white rounded-lg lg:w-1/3 md:w-1/2 md:ml-auto md:mt-0">
+          <h2 className="mb-1 text-lg font-medium text-gray-900 title-font">
             Feedback
           </h2>
-          <p className="leading-relaxed mb-5 text-gray-600">
-            Post-ironic portland shabby chic echo park, banjo fashion axe
+          <p className="mb-5 leading-relaxed text-gray-600">
+            White aquamarine pastel, saturation black, crimson grey red color
+            persimmon navy blue paint; chroma grey gradient.
           </p>
           <input
-            className="bg-white rounded border border-gray-400 focus:outline-none focus:border-primary-500 text-base px-4 py-2 mb-4"
+            className="px-4 py-2 mb-4 text-base bg-white border border-gray-400 rounded focus:outline-none focus:border-primary-500"
             placeholder="Email"
             type="email"
           />
           <textarea
-            className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-primary-500 text-base px-4 py-2 mb-4 resize-none"
+            className="h-32 px-4 py-2 mb-4 text-base bg-white border border-gray-400 rounded resize-none focus:outline-none focus:border-primary-500"
             placeholder="Message"
           />
-          <button className="text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg">
+          <button
+            className="px-6 py-2 text-lg text-white border-0 rounded bg-primary-500 focus:outline-none hover:bg-primary-600"
+            type="button"
+          >
             Button
           </button>
-          <p className="text-xs text-gray-500 mt-3">
-            Chicharrones blog helvetica normcore iceland tousled brook viral
-            artisan.
+          <p className="mt-3 text-xs text-gray-500">
+            Grey yellow lime, rainbow light, navy blue red magenta mint blue.
+            Hot pink mint charcoal violet, chroma coral.
           </p>
         </div>
       </div>
     </section>
   </Layout>
 );
+
+export const query = graphql`
+  query AboutQuery {
+    headerImage: file(
+      relativePath: { eq: "placeholder-images/unsplash-seanwsinclair.jpeg" }
+    ) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`;
 
 export default AboutPage;
