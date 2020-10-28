@@ -50,7 +50,6 @@ const theme = {
   },
   fontFamily: {
     sans: [
-      'Creo',
       '-apple-system',
       'BlinkMacSystemFont',
       'Segoe UI',
@@ -62,8 +61,6 @@ const theme = {
       'Helvetica Neue',
       'sans-serif',
     ],
-    accent: ['Beloved Sans', 'sans-serif'],
-    script: ['Beloved Script', 'cursive'],
   },
   extend: {
     spacing: {
