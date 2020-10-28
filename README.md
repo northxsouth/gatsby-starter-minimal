@@ -48,3 +48,7 @@ Update the `googleFonts` section in [config/SiteConfig.js](config/SiteConfig.js)
 The starter is already set up for Google Fonts. We use [gatsby-plugin-webfonts](https://github.com/hupe1980/gatsby-plugin-webfonts), which has additional options for CDN, base64, and self-hosted webfonts; update those options in [gatsby-config.js](gatsby-config.js).
 
 Make sure to add your new font to the `fontFamily` section of [tailwind.config.js](tailwind.config.js)!
+
+### ...change the favicon?
+
+Replace [favicon.svg](src/assets/images/favicon.svg) with your own SVG data, or update the `icon` path in the `manifestOptions` of [config/SiteConfig.js](config/SiteConfig.js)

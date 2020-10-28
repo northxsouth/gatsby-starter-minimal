@@ -68,6 +68,10 @@ const manifestOptions = {
   start_url: pathPrefix,
   background_color: '#fff',
   theme_color: '#48695f',
+  icon: 'src/assets/images/favicon.svg',
+  icon_options: {
+    purpose: 'maskable',
+  },
 };
 
 const googleFonts = [
