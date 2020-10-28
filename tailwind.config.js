@@ -8,19 +8,6 @@ const theme = {
       ...colors.indigo,
       default: colors.indigo[500],
     },
-    success: {
-      50: '#f4f7eb',
-      100: '#e2ebcd',
-      200: '#d0ddae',
-      300: '#bdd090',
-      400: '#b0c678',
-      500: '#a3bd63',
-      600: '#93ad5a',
-      700: '#7f9950',
-      800: '#6d8547',
-      900: '#4e6338',
-      default: '#7f9950',
-    },
     secondary: {
       50: '#f3f1e0',
       100: '#e0dcb3',
@@ -33,6 +20,10 @@ const theme = {
       800: '#6b6000',
       900: '#4f3f00',
       default: '#e0dcb3',
+    },
+    success: {
+      ...colors.green,
+      default: colors.green[500],
     },
     muted: {
       50: '#ededed',

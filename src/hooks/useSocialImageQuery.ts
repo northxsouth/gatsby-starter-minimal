@@ -4,7 +4,7 @@ import { SocialImageQueryQuery } from '../../graphql-types';
 export const useSocialImageQuery = (): string => {
   const data: SocialImageQueryQuery = useStaticQuery(graphql`
     query SocialImageQuery {
-      socialImage: file(relativePath: { eq: "social-image.png" }) {
+      socialImage: file(relativePath: { eq: "social-image.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 630) {
             src
