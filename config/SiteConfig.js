@@ -70,6 +70,13 @@ const manifestOptions = {
   theme_color: '#48695f',
 };
 
+const googleFonts = [
+  {
+    family: 'Work Sans',
+    variants: ['400', '700'],
+  },
+];
+
 module.exports = {
   baseUrl,
   siteMetadata,
@@ -77,4 +84,5 @@ module.exports = {
   googleAnalytics,
   social,
   manifestOptions,
+  googleFonts,
 };

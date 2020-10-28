@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { siteMetadata, manifestOptions, googleAnalytics, pathPrefix } = require('./config/SiteConfig');
+const { siteMetadata, manifestOptions, googleAnalytics, pathPrefix, googleFonts } = require('./config/SiteConfig');
 
 module.exports = {
   siteMetadata,
@@ -55,6 +55,14 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-graphql-config'
+    'gatsby-plugin-graphql-config',
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: googleFonts,
+        },
+      },
+    },
   ],
 };
