@@ -57,11 +57,9 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-graphql-config',
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
-        fonts: {
-          google: googleFonts,
-        },
+        fonts: googleFonts,
       },
     },
   ],

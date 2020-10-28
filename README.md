@@ -45,7 +45,7 @@ Tailwind doesn't like the existing tools and fine-tunes each value. If you'd sti
 
 Update the `googleFonts` section in [config/SiteConfig.js](config/SiteConfig.js).
 
-The starter is already set up for Google Fonts. We use [gatsby-plugin-webfonts](https://github.com/hupe1980/gatsby-plugin-webfonts), which has additional options for CDN, base64, and self-hosted webfonts; update those options in [gatsby-config.js](gatsby-config.js).
+The starter is already set up for Google Fonts. We use [gatsby-plugin-google-fonts-v2](https://github.com/pocorschi/gatsby-plugin-google-fonts-v2), which has support for variable fonts.
 
 Make sure to add your new font to the `fontFamily` section of [tailwind.config.js](tailwind.config.js)!
 
