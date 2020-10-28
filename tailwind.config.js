@@ -5,8 +5,8 @@ const theme = {
   colors: {
     ...colors,
     primary: {
-      ...colors.indigo,
-      default: colors.indigo[500],
+      ...colors.teal,
+      default: colors.teal[500],
     },
     secondary: {
       50: '#f3f1e0',

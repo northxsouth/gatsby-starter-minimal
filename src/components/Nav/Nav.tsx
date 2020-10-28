@@ -17,7 +17,7 @@ export const Nav: React.FC = () => {
 
   return (
     <div className="relative z-20 w-full h-24 pt-2 bg-white">
-      <div className="container flex items-center justify-between h-full mx-auto px-5 xl:p-0">
+      <div className="container flex items-center justify-between h-full px-5 mx-auto">
         <Link to="/" className="relative flex items-center h-full font-black">
           <span className="text-2xl font-black">Starter</span>
         </Link>
@@ -34,8 +34,8 @@ export const Nav: React.FC = () => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about/">About</NavLink>
             <NavLink to="#">
-              <span className="relative inline-block px-3 py-1 text-base font-bold duration-200 bg-white text-primary border-2 border-primary rounded fold-bold hover:bg-primary-500 hover:text-white uppercase transition-colors ease-in-out">
-                signup
+              <span className="relative inline-block px-3 py-1 text-base uppercase transition-colors duration-200 ease-in-out bg-white border-2 rounded text-primary border-primary fold-bold hover:bg-primary-500 hover:text-white">
+                Sign Up
               </span>
             </NavLink>
           </nav>
@@ -49,7 +49,7 @@ export const Nav: React.FC = () => {
             type="button"
           >
             <svg
-              className="fill-current h-3 w-3"
+              className="w-3 h-3 fill-current"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
