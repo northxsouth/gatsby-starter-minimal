@@ -47,8 +47,8 @@ const Footer: React.FC<IFooterProps> = () => {
           </Link>
           <p className="mt-2 text-sm text-gray-500">{description}</p>
         </div>
-        <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
-          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+        <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left md:justify-end md:-mx-8">
+          <div className="w-full px-4 md:px-8 md:w-auto">
             <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900">
               CATEGORIES
             </h2>
@@ -75,7 +75,7 @@ const Footer: React.FC<IFooterProps> = () => {
               </li>
             </nav>
           </div>
-          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+          <div className="w-full px-4 md:px-8 md:w-auto">
             <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900">
               CATEGORIES
             </h2>
@@ -101,27 +101,6 @@ const Footer: React.FC<IFooterProps> = () => {
                 </Link>
               </li>
             </nav>
-          </div>
-          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900">
-              SUBSCRIBE
-            </h2>
-            <div className="flex flex-wrap justify-center xl:flex-no-wrap md:flex-no-wrap lg:flex-wrap md:justify-start">
-              <input
-                className="w-40 px-4 py-2 mr-1 text-base bg-gray-100 border border-gray-400 rounded sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 focus:outline-none focus:border-primary-500"
-                placeholder="you@youremail.com"
-                type="text"
-              />
-              <button
-                className="inline-flex flex-shrink-0 px-6 py-2 text-white uppercase border-0 rounded lg:mt-2 xl:mt-0 bg-primary-500 focus:outline-none hover:bg-primary-600"
-                type="submit"
-              >
-                Subscribe
-              </button>
-            </div>
-            <p className="mt-2 text-sm text-center text-gray-500 md:text-left">
-              Subscribe to our weekly newsletter!
-            </p>
           </div>
         </div>
       </div>
