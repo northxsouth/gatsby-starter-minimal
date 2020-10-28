@@ -16,35 +16,16 @@ export const Nav: React.FC = () => {
   useResize(handleResize);
 
   return (
-    <div className="relative z-20 w-full h-24 pt-2 bg-white">
-      <div className="container flex items-center justify-between h-full px-5 mx-auto font-medium">
-        <Link to="/" className="relative flex items-center h-full">
+    <nav className="z-10 w-full py-4 bg-white border-b border-gray-100 shadow-sm md:shadow-none md:bg-transparent md:border-none">
+      <div className="container flex flex-wrap items-center justify-between px-4 mx-auto md:flex-row">
+        <Link to="/" className="relative flex items-center mr-6">
           <span className="text-2xl">Starter</span>
         </Link>
 
-        <div
-          id="nav"
-          className="absolute top-0 left-0 right-0 block w-full mt-20 border-b border-gray-200 sm:border-none sm:block sm:relative sm:mt-0 sm:w-auto"
-        >
-          <nav
-            className={`navbar flex flex-col items-center py-3 bg-white border border-gray-100 sm:flex-row sm:bg-transparent sm:border-none sm:py-0 ease-in-out transition duration-300 delay-75 lg:visible shadow-lg md:shadow-none ${
-              isOpen ? 'translate-x-0' : '-translate-x-full overflow invisible'
-            }`}
-          >
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about/">About</NavLink>
-            <NavLink to="#">
-              <span className="relative inline-block px-3 py-1 text-base uppercase transition-colors duration-200 ease-in-out bg-white border-2 rounded text-primary border-primary fold-bold hover:bg-primary-500 hover:text-white">
-                Sign Up
-              </span>
-            </NavLink>
-          </nav>
-        </div>
-
-        <div className="block lg:hidden">
+        <div className="block md:hidden">
           <button
             id="nav-toggle"
-            className="btn btn-primary"
+            className="flex items-center px-3 py-2 text-gray-400 border border-gray-400 rounded hover:text-gray-300 hover:border-gray-300"
             onClick={toggleNav}
             type="button"
           >
@@ -58,7 +39,24 @@ export const Nav: React.FC = () => {
             </svg>
           </button>
         </div>
+
+        <div
+          id="nav-content"
+          className={`flex-grow w-full pt-2 md:flex md:items-center md:w-auto md:block md:pt-0 transition-all ease-in-out transform md:transform-none md:visible ${
+            !isOpen && 'hidden'
+          }`}
+        >
+          <div className="flex flex-col items-start justify-end flex-1 -mx-1 md:items-center md:flex-row">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about/">About</NavLink>
+            <NavLink to="#">
+              <span className="relative inline-block px-3 py-1 text-base uppercase transition-colors duration-200 ease-in-out bg-white border-2 rounded text-primary border-primary fold-bold hover:bg-primary-500 hover:text-white">
+                Sign Up
+              </span>
+            </NavLink>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };

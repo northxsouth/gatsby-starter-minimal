@@ -12,7 +12,7 @@ interface IAboutPageProps {
 const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
   <Layout location={location} title="About">
     <section className="text-gray-700 body-font">
-      <div className="container flex flex-col px-5 py-12 mx-auto md:py-24">
+      <div className="container flex flex-col px-4 py-12 mx-auto md:py-24">
         <div className="mx-auto lg:w-4/6">
           <div className="h-64 overflow-hidden rounded-lg shadow">
             <Img
@@ -78,7 +78,7 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
           src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Chicago&ie=UTF8&t=&z=14&iwloc=B&output=embed"
         />
       </div>
-      <div className="container flex px-5 py-24 mx-auto">
+      <div className="container flex px-4 py-24 mx-auto">
         <div className="relative z-10 flex flex-col w-full p-8 mt-10 bg-white rounded-lg lg:w-1/3 md:w-1/2 md:ml-auto md:mt-0">
           <h2 className="mb-1 text-lg font-medium text-gray-900 title-font">
             Feedback
