@@ -23,34 +23,36 @@ const Footer: React.FC<IFooterProps> = () => {
   } = data;
   return (
     <footer className="text-gray-700 body-font">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+      <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+        <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
           <Link
-            className="flex font-medium items-center md:justify-start justify-center text-gray-900"
+            className="flex items-center justify-center font-medium text-left text-gray-900 md:justify-start"
             to="/"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-primary-500 rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <span className="ml-3 text-xl">{title}</span>
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-full p-2 text-white"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <span className="ml-3 text-xl leading-none">{title}</span>
           </Link>
           <p className="mt-2 text-sm text-gray-500">{description}</p>
         </div>
-        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-            <h2 className="font-medium text-gray-900 tracking-widest text-sm mb-3">
+        <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
+          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900">
               CATEGORIES
             </h2>
-            <nav className="list-none mb-10">
+            <nav className="mb-10 list-none">
               <li>
                 <Link className="text-gray-600 hover:text-gray-800" to="/">
                   First Link
@@ -73,11 +75,11 @@ const Footer: React.FC<IFooterProps> = () => {
               </li>
             </nav>
           </div>
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-            <h2 className="font-medium text-gray-900 tracking-widest text-sm mb-3">
+          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900">
               CATEGORIES
             </h2>
-            <nav className="list-none mb-10">
+            <nav className="mb-10 list-none">
               <li>
                 <Link className="text-gray-600 hover:text-gray-800" to="/">
                   First Link
@@ -100,43 +102,43 @@ const Footer: React.FC<IFooterProps> = () => {
               </li>
             </nav>
           </div>
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-            <h2 className="font-medium text-gray-900 tracking-widest text-sm mb-3">
+          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900">
               SUBSCRIBE
             </h2>
-            <div className="flex xl:flex-no-wrap md:flex-no-wrap lg:flex-wrap flex-wrap justify-center md:justify-start">
+            <div className="flex flex-wrap justify-center xl:flex-no-wrap md:flex-no-wrap lg:flex-wrap md:justify-start">
               <input
-                className="w-40 sm:w-auto bg-gray-100 rounded xl:mr-4 lg:mr-0 sm:mr-4 mr-1 border border-gray-400 focus:outline-none focus:border-primary-500 text-base py-2 px-4"
+                className="w-40 px-4 py-2 mr-1 text-base bg-gray-100 border border-gray-400 rounded sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 focus:outline-none focus:border-primary-500"
                 placeholder="you@youremail.com"
                 type="text"
               />
               <button
-                className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded uppercase"
+                className="inline-flex flex-shrink-0 px-6 py-2 text-white uppercase border-0 rounded lg:mt-2 xl:mt-0 bg-primary-500 focus:outline-none hover:bg-primary-600"
                 type="submit"
               >
                 Subscribe
               </button>
             </div>
-            <p className="text-gray-500 text-sm mt-2 md:text-left text-center">
+            <p className="mt-2 text-sm text-center text-gray-500 md:text-left">
               Subscribe to our weekly newsletter!
             </p>
           </div>
         </div>
       </div>
       <div className="bg-gray-200">
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 text-sm text-center sm:text-left">
+        <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
+          <p className="text-sm text-center text-gray-500 sm:text-left">
             © {buildYear} {title} —
             <Link
               to={`https://twitter.com/${twitter.username}`}
               rel="noopener noreferrer"
-              className="text-gray-600 ml-1"
+              className="ml-1 text-gray-600"
               target="_blank"
             >
               {twitter.username}
             </Link>
           </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+          <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
             <Link
               className="text-gray-500"
               to={`https://facebook.com/${facebook.username}`}

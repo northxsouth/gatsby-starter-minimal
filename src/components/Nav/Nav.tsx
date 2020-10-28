@@ -17,9 +17,9 @@ export const Nav: React.FC = () => {
 
   return (
     <div className="relative z-20 w-full h-24 pt-2 bg-white">
-      <div className="container flex items-center justify-between h-full px-5 mx-auto">
-        <Link to="/" className="relative flex items-center h-full font-black">
-          <span className="text-2xl font-black">Starter</span>
+      <div className="container flex items-center justify-between h-full px-5 mx-auto font-medium">
+        <Link to="/" className="relative flex items-center h-full">
+          <span className="text-2xl">Starter</span>
         </Link>
 
         <div
