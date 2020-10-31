@@ -1,0 +1,29 @@
+{
+  "jest.autoEnable": false,
+  // We want linters to take over
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  // Set the default
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true
+  },
+  "[markdownreact]": {
+    "editor.formatOnSave": true
+  },
+}
