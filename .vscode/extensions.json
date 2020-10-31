@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "mikestead.dotenv",
+    "orta.vscode-jest",
+    "streetsidesoftware.code-spell-checker",
+    "graphql.vscode-graphql",
+    "bradlc.vscode-tailwindcss",
+    "infeng.vscode-react-typescript",
+    "stylelint.vscode-stylelint",
+    "heybourn.headwind"
+  ]
+}

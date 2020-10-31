@@ -1,0 +1,19 @@
+{
+  "React Stateless Functional Component": {
+    "prefix": "tsfc",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "interface I${1:${TM_FILENAME_BASE}}Props {$2",
+      "}",
+      "",
+      "const ${1:}: React.FC<I${1:}Props> = ({}) => {",
+      "  return $0;",
+      "};",
+      "",
+      "export { ${1:} };",
+      ""
+    ],
+    "description": "Create a React Stateless Functional Component."
+  }
+}
