@@ -10,12 +10,16 @@ module.exports = {
       resolve: 'gatsby-plugin-typescript',
     },
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: 'gatsby-plugin-typegen',
       options: {
-        documentPaths: [
-          './src/**/*.{js,ts,tsx}',
-          './node_modules/gatsby-transformer-sharp/**/*.js',
-        ]
+        outputPath: 'src/types/gatsby-types.d.ts',
+        emitSchema: {
+          'src/__generated__/gatsby-introspection.json': true,
+          'src/__generated__/gatsby-schema.graphql': true,
+        },
+        emitPluginDocuments: {
+          'src/__generated__/gatsby-plugin-documents.graphql': true,
+        },
       },
     },
     {
@@ -55,7 +59,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-graphql-config',
     {
       resolve: `gatsby-plugin-google-fonts-v2`,
       options: {

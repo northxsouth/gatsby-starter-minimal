@@ -9,3 +9,10 @@ graphql-types.ts
 .env*
 !.env.sample
 src/assets/style/_tailwindvars.scss
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.js
+.pnp*

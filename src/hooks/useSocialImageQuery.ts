@@ -1,8 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { SocialImageQueryQuery } from '../../graphql-types';
 
 export const useSocialImageQuery = (): string => {
-  const data: SocialImageQueryQuery = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.SocialImageQueryQuery>(graphql`
     query SocialImageQuery {
       socialImage: file(relativePath: { eq: "social-image.jpg" }) {
         childImageSharp {

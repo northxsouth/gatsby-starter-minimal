@@ -2,11 +2,10 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Img from 'gatsby-image';
 import { Layout } from '../components/Layout';
-import { HomepageQueryQuery } from '../../graphql-types';
 
 interface IHomepageProps {
   location: Location;
-  data: HomepageQueryQuery;
+  data: GatsbyTypes.HomepageQueryQuery;
 }
 
 const HomePage: React.FC<IHomepageProps> = ({ location, data }) => (

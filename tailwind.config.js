@@ -61,6 +61,9 @@ const theme = {
       84: '21rem',
       96: '24rem',
     },
+    borderColor: {
+      default: '#eeeef0',
+    },
   },
 };
 

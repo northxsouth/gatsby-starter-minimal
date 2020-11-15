@@ -11,6 +11,7 @@
     "bradlc.vscode-tailwindcss",
     "infeng.vscode-react-typescript",
     "stylelint.vscode-stylelint",
-    "heybourn.headwind"
+    "heybourn.headwind",
+    "arcanis.vscode-zipfs"
   ]
 }

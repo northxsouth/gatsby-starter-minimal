@@ -1,8 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { SocialQueryQuery } from '../../graphql-types';
 
-export const useSocialQuery = (): SocialQueryQuery['site']['siteMetadata']['social'] => {
-  const data: SocialQueryQuery = useStaticQuery(graphql`
+export const useSocialQuery = (): GatsbyTypes.SocialQueryQuery['site']['siteMetadata']['social'] => {
+  const data = useStaticQuery<GatsbyTypes.SocialQueryQuery>(graphql`
     query SocialQuery {
       site {
         siteMetadata {

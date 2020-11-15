@@ -2,12 +2,11 @@ import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { useSiteMetadata, useSocialQuery } from '../../hooks';
 import { Link } from '../Link';
-import { FooterDataQuery } from '../../../graphql-types';
 
 interface IFooterProps {}
 
 const Footer: React.FC<IFooterProps> = () => {
-  const data: FooterDataQuery = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.FooterDataQuery>(graphql`
     query FooterData {
       siteBuildMetadata {
         buildYear: buildTime(formatString: "Y")

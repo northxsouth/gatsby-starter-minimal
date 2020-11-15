@@ -1,8 +1,9 @@
-const { schema, documents } = require('./.cache/graphql.config.json');
-
 module.exports = {
-  schema,
-  documents,
+  schema: './src/__generated__/gatsby-schema.graphql',
+  documents: [
+    './src/**/*.{ts,tsx}',
+    './src/__generated__/gatsby-plugin-documents.graphql',
+  ],
   extensions: {
     endpoints: {
       default: {

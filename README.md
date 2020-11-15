@@ -4,14 +4,15 @@
 
 # What's in the box
 
-* tailwind
-* sass
-* tailwind -> sass vars
-* gatsby / react
-* eslint
-* prettier
-* jest
-* sane defaults
+- [Yarn 2.x (berry)](https://github.com/yarnpkg/berry)
+- Typescript! Graphql!
+- Tailwind
+- SASS/SCSS
+- Tailwind -> SASS vars
+- Gatsby / React
+- Linting! w/ ESLint & Prettier
+- Jest
+- Sane Defaults
 
 ## Running
 

@@ -26,4 +26,8 @@
   "[markdownreact]": {
     "editor.formatOnSave": true
   },
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  }
 }

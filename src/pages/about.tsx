@@ -2,11 +2,10 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Img from 'gatsby-image';
 import { Layout } from '../components/Layout';
-import { AboutQueryQuery } from '../../graphql-types';
 
 interface IAboutPageProps {
   location: Location;
-  data: AboutQueryQuery;
+  data: GatsbyTypes.AboutQueryQuery;
 }
 
 const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
