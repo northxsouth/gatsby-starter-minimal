@@ -117,7 +117,7 @@ export const query = graphql`
       relativePath: { eq: "placeholder-images/unsplash-seanwsinclair.jpeg" }
     ) {
       childImageSharp {
-        fluid(quality: 70) {
+        fluid(quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

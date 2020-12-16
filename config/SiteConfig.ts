@@ -1,19 +1,17 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable global-require */
-/* eslint-disable import/no-extraneous-dependencies */
+import dotenv from 'dotenv';
+import { GatsbyConfig } from 'gatsby';
+import pkg from '../package.json';
 
-require('dotenv').config();
-const package = require('../package.json');
+dotenv.config();
 
 const { CONTEXT, DEPLOY_PRIME_URL, GATSBY_ACTIVE_ENV, NODE_ENV } = process.env;
-
 const BUILD_CONTEXT = GATSBY_ACTIVE_ENV || NODE_ENV || CONTEXT || 'development';
 
 console.log('Using environment config', { BUILD_CONTEXT });
 
 // BEGIN CONFIG HERE
 
+// This is your domain usually. We will override it with URLs from your CI (netlify usually) for dev/testing if applicable.
 const URL = 'https://gatsby-starter-minimal.netlify.app';
 const DEFAULT_DEV_URL = 'http://localhost:8000';
 
@@ -50,7 +48,7 @@ const siteMetadata = {
   pathPrefix,
   siteUrl: baseUrl,
   buildContext: BUILD_CONTEXT,
-  version: package.version,
+  version: pkg.version,
   social,
 };
 
@@ -61,7 +59,7 @@ const googleAnalytics = {
 };
 
 const manifestOptions = {
-  name: siteMetadata.siteTitle,
+  name: siteMetadata.title,
   short_name: siteMetadata.titleShort,
   description: siteMetadata.description,
   homepage_url: baseUrl,
@@ -82,7 +80,7 @@ const googleFonts = [
   },
 ];
 
-module.exports = {
+export {
   baseUrl,
   siteMetadata,
   pathPrefix,

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { colors } = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 const theme = {
   colors: {
     ...colors,
     primary: {
       ...colors.teal,
-      default: colors.teal[500],
+      DEFAULT: colors.teal[500],
     },
     secondary: {
       50: '#f3f1e0',
@@ -19,11 +19,11 @@ const theme = {
       700: '#7d7500',
       800: '#6b6000',
       900: '#4f3f00',
-      default: '#e0dcb3',
+      DEFAULT: '#e0dcb3',
     },
     success: {
       ...colors.green,
-      default: colors.green[500],
+      DEFAULT: colors.green[500],
     },
     muted: {
       50: '#ededed',
@@ -36,7 +36,7 @@ const theme = {
       700: '#594a42',
       800: '#4a3e38',
       900: '#3a302d',
-      default: '#594a42',
+      DEFAULT: '#594a42',
     },
   },
   fontFamily: {
@@ -62,7 +62,7 @@ const theme = {
       96: '24rem',
     },
     borderColor: {
-      default: '#eeeef0',
+      DEFAULT: '#eeeef0',
     },
   },
 };
@@ -76,15 +76,9 @@ const plugins = [];
 
 const purge = ['./src/**/*.tsx'];
 
-const future = {
-  removeDeprecatedGapUtilities: true,
-  purgeLayersByDefault: true,
-};
-
 module.exports = {
   purge,
   theme,
   variants,
   plugins,
-  future,
 };

@@ -15,7 +15,8 @@
     "removeComments": false,
     "preserveConstEnums": true,
     "noImplicitAny": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "resolveJsonModule": true
   },
-  "include": ["./src/**/*", "./config/**/*", "./gatsby*.js"]
+  "include": ["./src/**/*", "./config/**/*", "./gatsby*.ts"]
 }

@@ -51,7 +51,8 @@
       {
         "devDependencies": [
           "**/*.test{.ts,.tsx}",
-          "**/*.spec{.ts,.tsx}"
+          "**/*.spec{.ts,.tsx}",
+          "**/gatsby*{.ts,.tsx}"
         ]
       }
     ],

@@ -103,7 +103,7 @@ const Footer: React.FC<IFooterProps> = () => {
           </div>
         </div>
       </div>
-      <div className="bg-gray-200">
+      <div className="bg-blueGray-100">
         <div className="container flex flex-col flex-wrap px-4 py-4 mx-auto sm:flex-row">
           <p className="text-sm text-center text-gray-500 sm:text-left">
             © {buildYear} {title} —
