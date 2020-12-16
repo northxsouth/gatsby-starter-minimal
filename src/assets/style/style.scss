@@ -4,18 +4,16 @@
 
 @import 'tailwindvars';
 
-@layer base {
-  body,
-  html {
-    @apply h-full overflow-x-hidden;
-  }
+body,
+html {
+  @apply h-full overflow-x-hidden;
+}
 
-  body {
-    @apply flex flex-col;
-  }
+body {
+  @apply flex flex-col;
+}
 
-  #___gatsby,
-  #gatsby-focus-wrapper {
-    display: contents;
-  }
+#___gatsby,
+#gatsby-focus-wrapper {
+  display: contents;
 }
