@@ -3,3 +3,5 @@
   publish = "public"
 [build.environment]
   NETLIFY_USE_YARN = "true"
+  YARN_ENABLE_GLOBAL_CACHE = "true"
+  YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
