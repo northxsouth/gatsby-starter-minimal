@@ -65,11 +65,14 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint"
+    ],
+    "*": [
+      "gatsby-preload-fonts"
     ]
   },
   "scripts": {
     "start": "yarn dev",
-    "build": "yarn tailwind:export && yarn preload-fonts && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "yarn tailwind:export && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "tailwind:export": "tailwindcss-export-config --config=./tailwind.config.js --destination=./src/assets/style/_tailwindvars  --format=scss --quoted-keys=true && prettier src/assets/style/_tailwindvars.scss -w",
     "dev": "yarn tailwind:export && ENABLE_GATSBY_REFRESH_ENDPOINT=1 gatsby develop",
     "lint": "eslint src/**/* --fix --ext .ts,.tsx",
