@@ -16,3 +16,4 @@ src/assets/style/_tailwindvars.scss
 !.yarn/versions
 .pnp.js
 .pnp*
+font-preload-cache.json

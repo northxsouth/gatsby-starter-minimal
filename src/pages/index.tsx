@@ -1,14 +1,14 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { Layout } from '../components/Layout';
 
-interface IHomepageProps {
+interface HomepageProps {
   location: Location;
-  data: GatsbyTypes.HomepageQueryQuery;
+  data: GatsbyTypes.HomepageQuery;
 }
 
-const HomePage: React.FC<IHomepageProps> = ({ location, data }) => (
+const HomePage: React.FC<HomepageProps> = ({ location, data }) => (
   <Layout location={location}>
     <section className="text-gray-700 body-font">
       <div className="container flex flex-col items-center px-4 py-6 mx-auto sm:py-12 md:py-24 md:flex-row">
@@ -39,7 +39,7 @@ const HomePage: React.FC<IHomepageProps> = ({ location, data }) => (
         </div>
         <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
           <Img
-            fluid={data.headerImage.childImageSharp.fluid}
+            image={data.headerImage.childImageSharp.gatsbyImageData}
             alt="Abstract image by Gradienta on Unsplash"
             className="object-cover object-center w-full h-full rounded shadow"
           />
@@ -50,7 +50,7 @@ const HomePage: React.FC<IHomepageProps> = ({ location, data }) => (
 );
 
 export const query = graphql`
-  query HomepageQuery {
+  query Homepage {
     site {
       siteMetadata {
         buildContext
@@ -64,9 +64,7 @@ export const query = graphql`
       relativePath: { eq: "placeholder-images/unsplash-gradienta.jpeg" }
     ) {
       childImageSharp {
-        fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: FLUID, quality: 70, maxWidth: 1200)
       }
     }
   }

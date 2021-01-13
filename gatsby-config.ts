@@ -69,6 +69,8 @@ const config: GatsbyConfig = {
         fonts: googleFonts,
       },
     },
+    'gatsby-plugin-image',
+    'gatsby-plugin-preload-fonts',
   ],
 };
 
