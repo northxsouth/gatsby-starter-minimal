@@ -3,14 +3,21 @@ import Helmet from 'react-helmet';
 import url from 'url';
 import { useSiteMetadata, useSocialImageQuery } from '../../hooks';
 
-interface ISEOProps {
+interface SEOProps {
   title?: string;
   description?: string;
   image?: string;
   pathName?: string;
+  lang?: string;
 }
 
-const SEO: React.FC<ISEOProps> = ({ title, description, image, pathName }) => {
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  image,
+  pathName,
+  lang = 'en',
+}) => {
   const {
     siteUrl,
     social,
@@ -35,6 +42,7 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, pathName }) => {
       defaultTitle={title || defaultTitle}
       titleTemplate={`%s | ${defaultTitle}`}
       title={title}
+      htmlAttributes={{ lang }}
     >
       {/* General tags */}
       <meta name="description" content={description || defaultDescription} />
@@ -60,7 +68,6 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, pathName }) => {
         content={description || defaultDescription}
       />
       <meta name="twitter:image" content={socialImageUrl} />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
     </Helmet>
   );
 };
