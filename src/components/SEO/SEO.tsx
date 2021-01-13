@@ -60,6 +60,7 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, pathName }) => {
         content={description || defaultDescription}
       />
       <meta name="twitter:image" content={socialImageUrl} />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
     </Helmet>
   );
 };
