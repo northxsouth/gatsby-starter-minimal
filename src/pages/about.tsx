@@ -1,15 +1,12 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { Layout } from '../components/Layout';
 
-interface AboutPageProps {
-  location: Location;
-  data: GatsbyTypes.AboutPageQuery;
-}
-
-const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => (
-  <Layout location={location} title="About">
+const AboutPage: React.FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({
+  data,
+}) => (
+  <Layout title="About">
     <section className="text-gray-700 body-font">
       <div className="container flex flex-col px-4 py-12 mx-auto md:py-24">
         <div className="mx-auto lg:w-4/6">

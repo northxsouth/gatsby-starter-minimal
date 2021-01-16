@@ -1837,6 +1837,7 @@ enum SiteFieldsEnum {
   siteMetadata___social___twitter___username
   siteMetadata___social___facebook___username
   siteMetadata___social___instagram___username
+  siteMetadata___language
   port
   host
   pathPrefix
@@ -2625,6 +2626,7 @@ type SiteSiteMetadata {
   buildContext: String
   version: String
   social: SiteSiteMetadataSocial
+  language: String
 }
 
 input SiteSiteMetadataFilterInput {
@@ -2636,6 +2638,7 @@ input SiteSiteMetadataFilterInput {
   buildContext: StringQueryOperatorInput
   version: StringQueryOperatorInput
   social: SiteSiteMetadataSocialFilterInput
+  language: StringQueryOperatorInput
 }
 
 type SiteSiteMetadataSocial {

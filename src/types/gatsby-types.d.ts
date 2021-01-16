@@ -1970,6 +1970,7 @@ enum SiteFieldsEnum {
   siteMetadata___social___twitter___username = 'siteMetadata.social.twitter.username',
   siteMetadata___social___facebook___username = 'siteMetadata.social.facebook.username',
   siteMetadata___social___instagram___username = 'siteMetadata.social.instagram.username',
+  siteMetadata___language = 'siteMetadata.language',
   port = 'port',
   host = 'host',
   pathPrefix = 'pathPrefix',
@@ -2782,6 +2783,7 @@ type SiteSiteMetadata = {
   readonly buildContext: Maybe<Scalars['String']>;
   readonly version: Maybe<Scalars['String']>;
   readonly social: Maybe<SiteSiteMetadataSocial>;
+  readonly language: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataFilterInput = {
@@ -2793,6 +2795,7 @@ type SiteSiteMetadataFilterInput = {
   readonly buildContext: Maybe<StringQueryOperatorInput>;
   readonly version: Maybe<StringQueryOperatorInput>;
   readonly social: Maybe<SiteSiteMetadataSocialFilterInput>;
+  readonly language: Maybe<StringQueryOperatorInput>;
 };
 
 type SiteSiteMetadataSocial = {
@@ -2937,7 +2940,7 @@ type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description'>
+      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'language'>
       & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
     )> }> };
 

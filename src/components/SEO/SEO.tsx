@@ -1,74 +1,76 @@
 import * as React from 'react';
-import Helmet from 'react-helmet';
-import url from 'url';
+import { Helmet } from 'react-helmet';
+import { useLocation } from '@reach/router';
 import { useSiteMetadata, useSocialImageQuery } from '../../hooks';
+import { Twitter } from './Twitter';
 
 interface SEOProps {
+  /** Title of your page */
   title?: string;
+  /** Used for SEO meta description and social cards */
   description?: string;
+  /** Relative path to social image */
   image?: string;
-  pathName?: string;
-  lang?: string;
+  language?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
   title,
   description,
   image,
-  pathName,
-  lang = 'en',
+  language = 'en',
 }) => {
   const {
     siteUrl,
     social,
     title: defaultTitle,
     description: defaultDescription,
+    language: defaultLanguage,
   } = useSiteMetadata();
   const socialImageSrc = useSocialImageQuery();
+  const location = useLocation();
+
   const ogType = 'website';
-  const parsedUrl = url.parse(`${siteUrl}${pathName}`);
+  const pageUrl = new URL(location.pathname, siteUrl).toString();
 
-  const twitterCardStyle = 'summary_large_image';
+  const opts = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    lang: language || defaultLanguage,
+    socialImage: socialImageSrc || image,
+  };
 
-  const socialImage = socialImageSrc || image;
-
-  const pageUrl = `${parsedUrl.protocol}//${parsedUrl.host}${parsedUrl.pathname}`;
-  const socialImageUrl = socialImage
-    ? url.parse(`${siteUrl}${socialImage}`).href
+  const socialImageUrl = opts.socialImage
+    ? new URL(opts.socialImage, siteUrl).toString()
     : null;
 
   return (
-    <Helmet
-      defaultTitle={title || defaultTitle}
-      titleTemplate={`%s | ${defaultTitle}`}
-      title={title}
-      htmlAttributes={{ lang }}
-    >
-      {/* General tags */}
-      <meta name="description" content={description || defaultDescription} />
-      <meta name="image" content={socialImageUrl} />
+    <>
+      <Helmet
+        defaultTitle={opts.title}
+        titleTemplate={`%s | ${defaultTitle}`}
+        title={title}
+      >
+        <html lang={opts.lang} />
+        {/* General tags */}
+        <meta name="description" content={opts.description} />
+        <meta name="image" content={socialImageUrl} />
+        <link rel="canonical" href={pageUrl} />
 
-      <link rel="canonical" href={pageUrl} />
-      {/* OpenGraph tags */}
-      <meta property="og:url" content={pageUrl} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:title" content={title || defaultTitle} />
-      <meta
-        property="og:description"
-        content={description || defaultDescription}
+        {/* OpenGraph tags */}
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:title" content={opts.title} />
+        <meta property="og:description" content={opts.description} />
+        <meta property="og:image" content={socialImageUrl} />
+      </Helmet>
+      <Twitter
+        title={opts.title}
+        description={opts.description}
+        image={socialImageUrl}
+        username={social.twitter?.username}
       />
-      <meta property="og:image" content={socialImageUrl} />
-
-      {/* Twitter Card tags */}
-      <meta name="twitter:card" content={twitterCardStyle} />
-      <meta name="twitter:creator" content={social.twitter.username} />
-      <meta name="twitter:title" content={title || defaultTitle} />
-      <meta
-        name="twitter:description"
-        content={description || defaultDescription}
-      />
-      <meta name="twitter:image" content={socialImageUrl} />
-    </Helmet>
+    </>
   );
 };
 

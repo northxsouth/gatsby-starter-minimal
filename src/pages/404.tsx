@@ -1,13 +1,14 @@
+import { PageProps } from 'gatsby';
 import * as React from 'react';
 
-const NotFoundPage: React.FC = () => {
+const NotFoundPage: React.FC<PageProps> = () => {
   return (
-    <div className="h-screen w-screen bg-gray-100 flex items-center justify-center">
+    <div className="flex items-center justify-center w-screen h-screen bg-gray-100">
       <div className="container">
-        <div className="flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
+        <div className="flex flex-col items-center justify-center px-5 text-gray-700 md:flex-row">
           <div className="flex-1">
-            <div className="text-5xl font-dark font-bold">404</div>
-            <p className="text-2xl md:text-3xl font-light leading-normal">
+            <div className="text-5xl font-bold font-dark">404</div>
+            <p className="text-2xl font-light leading-normal md:text-3xl">
               Sorry we couldn't find this page.{' '}
             </p>
             <p className="mb-8">
@@ -16,7 +17,7 @@ const NotFoundPage: React.FC = () => {
             </p>
 
             <a
-              className="px-4 inline py-3 text-sm font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-lg focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-blue-700"
+              className="inline px-4 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-blue active:bg-blue-600 hover:bg-blue-700"
               href="/"
             >
               back to homepage
@@ -31,7 +32,7 @@ const NotFoundPage: React.FC = () => {
               strokeWidth="0.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="feather feather-alert-circle w-1/2"
+              className="w-1/2 feather feather-alert-circle"
             >
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="8" x2="12" y2="12" />

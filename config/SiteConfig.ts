@@ -41,6 +41,8 @@ const social = {
   },
 };
 
+const language = 'en';
+
 const siteMetadata = {
   title: 'Gatsby Starter: Tailwind & TS', // Site title.
   titleShort: 'Tailwind & TS Starter', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
@@ -50,6 +52,7 @@ const siteMetadata = {
   buildContext: BUILD_CONTEXT,
   version: pkg.version,
   social,
+  language,
 };
 
 const googleAnalytics = {
