@@ -64,19 +64,13 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-plugin-google-fonts-v2',
+      resolve: '@northxsouth/gatsby-plugin-google-fonts',
       options: {
         fonts: googleFonts,
       },
     },
     'gatsby-plugin-image',
     'gatsby-plugin-preload-fonts',
-    {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: ['https://fonts.gstatic.com'],
-      },
-    },
   ],
 };
 

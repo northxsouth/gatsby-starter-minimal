@@ -42,18 +42,14 @@ export const Nav: React.FC = () => {
 
         <div
           id="nav-content"
-          className={`flex-grow w-full pt-2 md:flex md:items-center md:w-auto md:block md:pt-0 transition-all ease-in-out transform md:transform-none md:visible ${
+          className={`flex-grow w-full pt-2 md:flex md:items-center md:w-auto md:pt-0 transition-all ease-in-out transform md:transform-none md:visible ${
             !isOpen && 'hidden'
           }`}
         >
           <div className="flex flex-col items-start justify-end flex-1 -mx-1 md:items-center md:flex-row">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about/">About</NavLink>
-            <NavLink to="#">
-              <span className="relative inline-block px-3 py-1 text-base uppercase transition-colors duration-200 ease-in-out bg-white border-2 rounded text-primary border-primary fold-bold hover:bg-primary-500 hover:text-white">
-                Sign Up
-              </span>
-            </NavLink>
+            <NavLink to="/contact/">Contact</NavLink>
           </div>
         </div>
       </div>

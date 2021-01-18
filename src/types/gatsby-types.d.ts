@@ -2314,7 +2314,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___fonts___family = 'pluginCreator.pluginOptions.fonts.family',
   pluginCreator___pluginOptions___fonts___variable = 'pluginCreator.pluginOptions.fonts.variable',
   pluginCreator___pluginOptions___fonts___weights = 'pluginCreator.pluginOptions.fonts.weights',
-  pluginCreator___pluginOptions___domains = 'pluginCreator.pluginOptions.domains',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -2535,7 +2534,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___fonts___family = 'pluginOptions.fonts.family',
   pluginOptions___fonts___variable = 'pluginOptions.fonts.variable',
   pluginOptions___fonts___weights = 'pluginOptions.fonts.weights',
-  pluginOptions___domains = 'pluginOptions.domains',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -2678,7 +2676,6 @@ type SitePluginPluginOptions = {
   readonly mergeCachingHeaders: Maybe<Scalars['Boolean']>;
   readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   readonly fonts: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsFonts>>>;
-  readonly domains: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
@@ -2729,7 +2726,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly mergeCachingHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   readonly fonts: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
-  readonly domains: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 

@@ -2169,7 +2169,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___fonts___family
   pluginCreator___pluginOptions___fonts___variable
   pluginCreator___pluginOptions___fonts___weights
-  pluginCreator___pluginOptions___domains
   pluginCreator___pluginOptions___pathCheck
   pluginCreator___nodeAPIs
   pluginCreator___browserAPIs
@@ -2378,7 +2377,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___fonts___family
   pluginOptions___fonts___variable
   pluginOptions___fonts___weights
-  pluginOptions___domains
   pluginOptions___pathCheck
   nodeAPIs
   browserAPIs
@@ -2521,7 +2519,6 @@ type SitePluginPluginOptions {
   mergeCachingHeaders: Boolean
   postCssPlugins: [SitePluginPluginOptionsPostCssPlugins]
   fonts: [SitePluginPluginOptionsFonts]
-  domains: [String]
   pathCheck: Boolean
 }
 
@@ -2572,7 +2569,6 @@ input SitePluginPluginOptionsFilterInput {
   mergeCachingHeaders: BooleanQueryOperatorInput
   postCssPlugins: SitePluginPluginOptionsPostCssPluginsFilterListInput
   fonts: SitePluginPluginOptionsFontsFilterListInput
-  domains: StringQueryOperatorInput
   pathCheck: BooleanQueryOperatorInput
 }
 
