@@ -114,7 +114,12 @@ export const query = graphql`
       relativePath: { eq: "placeholder-images/unsplash-seanwsinclair.jpeg" }
     ) {
       childImageSharp {
-        gatsbyImageData(layout: FLUID, quality: 70, maxWidth: 800)
+        gatsbyImageData(
+          layout: FLUID
+          quality: 70
+          maxWidth: 800
+          placeholder: BLURRED
+        )
       }
     }
   }
