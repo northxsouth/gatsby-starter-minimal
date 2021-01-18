@@ -12518,6 +12518,16 @@
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "language",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -12989,6 +12999,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -13401,6 +13423,12 @@
           },
           {
             "name": "siteMetadata___social___instagram___username",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "siteMetadata___language",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -14759,6 +14787,16 @@
             "defaultValue": null
           },
           {
+            "name": "domains",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "pathCheck",
             "description": "",
             "type": {
@@ -15964,6 +16002,22 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "SitePluginPluginOptionsFonts",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "domains",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -17563,6 +17617,12 @@
           },
           {
             "name": "pluginCreator___pluginOptions___fonts___weights",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___domains",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -21215,6 +21275,12 @@
           },
           {
             "name": "pluginOptions___fonts___weights",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___domains",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

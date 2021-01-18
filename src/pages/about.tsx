@@ -1,22 +1,19 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { Layout } from '../components/Layout';
 
-interface IAboutPageProps {
-  location: Location;
-  data: GatsbyTypes.AboutQueryQuery;
-}
-
-const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
-  <Layout location={location} title="About">
+const AboutPage: React.FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({
+  data,
+}) => (
+  <Layout title="About">
     <section className="text-gray-700 body-font">
       <div className="container flex flex-col px-4 py-12 mx-auto md:py-24">
         <div className="mx-auto lg:w-4/6">
           <div className="h-64 overflow-hidden rounded-lg shadow">
             <Img
-              fluid={data.headerImage.childImageSharp.fluid}
-              alt="Abstract image by Sean W. Sinclair"
+              image={data.headerImage.childImageSharp.gatsbyImageData}
+              alt="Abstract image by Gradienta on Unsplash"
               className="object-cover object-center w-full h-full"
             />
           </div>
@@ -112,14 +109,17 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
 );
 
 export const query = graphql`
-  query AboutQuery {
+  query AboutPage {
     headerImage: file(
       relativePath: { eq: "placeholder-images/unsplash-seanwsinclair.jpeg" }
     ) {
       childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(
+          layout: FLUID
+          quality: 70
+          maxWidth: 800
+          placeholder: BLURRED
+        )
       }
     }
   }

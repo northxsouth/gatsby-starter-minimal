@@ -3,9 +3,9 @@ import * as React from 'react';
 import { useSiteMetadata, useSocialQuery } from '../../hooks';
 import { Link } from '../Link';
 
-interface IFooterProps {}
+interface FooterProps {}
 
-const Footer: React.FC<IFooterProps> = () => {
+const Footer: React.FC<FooterProps> = () => {
   const data = useStaticQuery<GatsbyTypes.FooterDataQuery>(graphql`
     query FooterData {
       siteBuildMetadata {

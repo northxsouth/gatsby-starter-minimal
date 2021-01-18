@@ -1,11 +1,11 @@
 import React from 'react';
 import { GatsbyLinkProps, Link as GatsbyLink } from 'gatsby';
 
-interface IOutboundLinkProps {
+interface OutboundLinkProps {
   href: string;
 }
 
-const OutboundLink: React.FC<IOutboundLinkProps> = ({
+const OutboundLink: React.FC<OutboundLinkProps> = ({
   href,
   children,
   ...rest

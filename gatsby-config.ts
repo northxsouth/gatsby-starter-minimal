@@ -69,6 +69,14 @@ const config: GatsbyConfig = {
         fonts: googleFonts,
       },
     },
+    'gatsby-plugin-image',
+    'gatsby-plugin-preload-fonts',
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://fonts.gstatic.com'],
+      },
+    },
   ],
 };
 
