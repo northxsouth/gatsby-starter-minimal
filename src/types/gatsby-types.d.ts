@@ -908,7 +908,7 @@ enum ImageFormat {
 
 enum ImageLayout {
   FIXED = 'fixed',
-  FLUID = 'fluid',
+  FULL_WIDTH = 'fullWidth',
   CONSTRAINED = 'constrained'
 }
 
@@ -1034,16 +1034,16 @@ type ImageSharp_sizesArgs = {
 
 type ImageSharp_gatsbyImageDataArgs = {
   layout?: Maybe<ImageLayout>;
-  maxWidth: Maybe<Scalars['Int']>;
-  maxHeight: Maybe<Scalars['Int']>;
   width: Maybe<Scalars['Int']>;
   height: Maybe<Scalars['Int']>;
+  aspectRatio: Maybe<Scalars['Float']>;
   placeholder?: Maybe<ImagePlaceholder>;
   blurredOptions: Maybe<BlurredOptions>;
   tracedSVGOptions: Maybe<Potrace>;
   formats?: Maybe<ReadonlyArray<Maybe<ImageFormat>>>;
   outputPixelDensities: Maybe<ReadonlyArray<Maybe<Scalars['Float']>>>;
-  sizes?: Maybe<Scalars['String']>;
+  breakpoints: Maybe<ReadonlyArray<Maybe<Scalars['Int']>>>;
+  sizes: Maybe<Scalars['String']>;
   quality: Maybe<Scalars['Int']>;
   jpgOptions: Maybe<JPGOptions>;
   pngOptions: Maybe<PNGOptions>;

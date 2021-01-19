@@ -59,12 +59,7 @@ export const query = graphql`
       relativePath: { eq: "placeholder-images/unsplash-gradienta.jpeg" }
     ) {
       childImageSharp {
-        gatsbyImageData(
-          layout: FLUID
-          quality: 70
-          maxWidth: 800
-          placeholder: BLURRED
-        )
+        gatsbyImageData(layout: FULL_WIDTH, quality: 70, placeholder: BLURRED)
       }
     }
   }
