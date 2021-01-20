@@ -120,6 +120,7 @@ const Footer: React.FC<FooterProps> = () => {
             <Link
               className="text-gray-500"
               to={`https://facebook.com/${facebook.username}`}
+              title="Facebook"
             >
               <svg
                 fill="currentColor"
@@ -135,6 +136,7 @@ const Footer: React.FC<FooterProps> = () => {
             <Link
               className="ml-3 text-gray-500"
               to={`https://twitter.com/${twitter.username}`}
+              title="Twitter"
             >
               <svg
                 fill="currentColor"
@@ -150,6 +152,7 @@ const Footer: React.FC<FooterProps> = () => {
             <Link
               className="ml-3 text-gray-500"
               to={`https://instagram.com/${instagram.username}`}
+              title="Instagram"
             >
               <svg
                 fill="none"

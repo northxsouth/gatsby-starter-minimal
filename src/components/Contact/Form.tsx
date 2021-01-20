@@ -4,7 +4,7 @@ interface ContactFormProps {}
 
 const ContactForm: React.FC<ContactFormProps> = () => {
   return (
-    <form className="grid grid-cols-1 gap-4">
+    <form className="grid grid-cols-1 gap-4" method="get" action="/thanks/">
       <div className="grid grid-cols-2 gap-2">
         <div className="flex flex-col">
           <label htmlFor="firstName" className="sr-only">
@@ -65,7 +65,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
         type="submit"
         className="px-4 py-2 text-base font-medium text-white uppercase border rounded border-primary-500 w-100 bg-primary focus:outline-none focus:bg-primary-600 hover:bg-primary-600"
       >
-        Submit
+        Send Message
       </button>
     </form>
   );

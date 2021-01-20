@@ -1,12 +1,23 @@
 import React from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 
+import { graphql, useStaticQuery } from 'gatsby';
 import { Link } from '../Link';
 import { NavLink } from './NavLink';
 import { useResize } from '../../hooks';
 
 export const Nav: React.FC = () => {
   const [isOpen, setNavOpen] = React.useState<boolean>(false);
+
+  const data = useStaticQuery<GatsbyTypes.NavDataQuery>(graphql`
+    query NavData {
+      site {
+        siteMetadata {
+          titleShort
+        }
+      }
+    }
+  `);
   const handleResize = () => {
     return setNavOpen(false);
   };
@@ -19,7 +30,7 @@ export const Nav: React.FC = () => {
     <nav className="z-10 w-full py-4 bg-white border-b border-gray-100 shadow-sm md:shadow-none md:bg-transparent md:border-none">
       <div className="container flex flex-wrap items-center justify-between px-4 mx-auto md:flex-row">
         <Link to="/" className="relative flex items-center mr-6">
-          <span className="text-2xl">Starter</span>
+          <span className="text-2xl">{data.site.siteMetadata.titleShort}</span>
         </Link>
 
         <div className="block md:hidden">
