@@ -52,26 +52,28 @@ const Footer: React.FC<FooterProps> = () => {
               CATEGORIES
             </h2>
             <nav className="mb-10 list-none">
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  First Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Second Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Third Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Fourth Link
-                </Link>
-              </li>
+              <ul>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    First Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Second Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Third Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Fourth Link
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </div>
           <div className="w-full px-4 md:px-8 md:w-auto">
@@ -79,26 +81,28 @@ const Footer: React.FC<FooterProps> = () => {
               CATEGORIES
             </h2>
             <nav className="mb-10 list-none">
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  First Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Second Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Third Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Fourth Link
-                </Link>
-              </li>
+              <ul>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    First Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Second Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Third Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Fourth Link
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </div>
         </div>

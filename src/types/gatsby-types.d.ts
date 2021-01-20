@@ -2932,6 +2932,11 @@ type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
 
+type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
+
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2949,10 +2954,5 @@ type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
-
-type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
 
 }
