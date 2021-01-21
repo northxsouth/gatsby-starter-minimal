@@ -908,7 +908,7 @@ enum ImageFormat {
 
 enum ImageLayout {
   FIXED = 'fixed',
-  FLUID = 'fluid',
+  FULL_WIDTH = 'fullWidth',
   CONSTRAINED = 'constrained'
 }
 
@@ -1034,16 +1034,16 @@ type ImageSharp_sizesArgs = {
 
 type ImageSharp_gatsbyImageDataArgs = {
   layout?: Maybe<ImageLayout>;
-  maxWidth: Maybe<Scalars['Int']>;
-  maxHeight: Maybe<Scalars['Int']>;
   width: Maybe<Scalars['Int']>;
   height: Maybe<Scalars['Int']>;
+  aspectRatio: Maybe<Scalars['Float']>;
   placeholder?: Maybe<ImagePlaceholder>;
   blurredOptions: Maybe<BlurredOptions>;
   tracedSVGOptions: Maybe<Potrace>;
   formats?: Maybe<ReadonlyArray<Maybe<ImageFormat>>>;
   outputPixelDensities: Maybe<ReadonlyArray<Maybe<Scalars['Float']>>>;
-  sizes?: Maybe<Scalars['String']>;
+  breakpoints: Maybe<ReadonlyArray<Maybe<Scalars['Int']>>>;
+  sizes: Maybe<Scalars['String']>;
   quality: Maybe<Scalars['Int']>;
   jpgOptions: Maybe<JPGOptions>;
   pngOptions: Maybe<PNGOptions>;
@@ -2314,7 +2314,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___fonts___family = 'pluginCreator.pluginOptions.fonts.family',
   pluginCreator___pluginOptions___fonts___variable = 'pluginCreator.pluginOptions.fonts.variable',
   pluginCreator___pluginOptions___fonts___weights = 'pluginCreator.pluginOptions.fonts.weights',
-  pluginCreator___pluginOptions___domains = 'pluginCreator.pluginOptions.domains',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -2535,7 +2534,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___fonts___family = 'pluginOptions.fonts.family',
   pluginOptions___fonts___variable = 'pluginOptions.fonts.variable',
   pluginOptions___fonts___weights = 'pluginOptions.fonts.weights',
-  pluginOptions___domains = 'pluginOptions.domains',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -2678,7 +2676,6 @@ type SitePluginPluginOptions = {
   readonly mergeCachingHeaders: Maybe<Scalars['Boolean']>;
   readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   readonly fonts: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsFonts>>>;
-  readonly domains: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
@@ -2729,7 +2726,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly mergeCachingHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   readonly fonts: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
-  readonly domains: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2929,12 +2925,17 @@ type AboutPageQuery = { readonly headerImage: Maybe<{ readonly childImageSharp: 
 type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomepageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
+type HomepageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'titleShort' | 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
 
 type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
+
+type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
 
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 

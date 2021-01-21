@@ -5325,7 +5325,7 @@
             "args": [
               {
                 "name": "layout",
-                "description": "The layout for the image.\nFIXED: A static image sized, that does not resize according to the screen width\nFLUID: The image resizes to fit its container. Pass a \"sizes\" option if it isn't going to be the full width of the screen. \nCONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.",
+                "description": "The layout for the image.\nFIXED: A static image sized, that does not resize according to the screen width\nFULL_WIDTH: The image resizes to fit its container. Pass a \"sizes\" option if it isn't going to be the full width of the screen. \nCONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.",
                 "type": {
                   "kind": "ENUM",
                   "name": "ImageLayout",
@@ -5334,28 +5334,8 @@
                 "defaultValue": "CONSTRAINED"
               },
               {
-                "name": "maxWidth",
-                "description": "Maximum display width of generated files. \nThe actual largest image resolution will be this value multipled by the largest value in outputPixelDensities\nThis only applies when layout = FLUID or CONSTRAINED. For other layout types, use \"width\"",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "maxHeight",
-                "description": "If set, the generated image is a maximum of this height, cropping if necessary. \nIf the image layout is \"constrained\" then the image will be limited to this height. \nIf the aspect ratio of the image is different than the source, then the image will be cropped.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
                 "name": "width",
-                "description": "The display width of the generated image. \nThe actual largest image resolution will be this value multipled by the largest value in outputPixelDensities\nIgnored if layout = FLUID or CONSTRAINED, where you should use \"maxWidth\" instead.",
+                "description": "The display width of the generated image for layout = FIXED, and the maximum display width of the largest image for layout = CONSTRAINED.  \nIgnored if layout = FLUID.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Int",
@@ -5365,10 +5345,20 @@
               },
               {
                 "name": "height",
-                "description": "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image.",
+                "description": "The display height of the generated image for layout = FIXED, and the maximum display height of the largest image for layout = CONSTRAINED.  \nThe image will be cropped if the aspect ratio does not match the source image. If omitted, it is calculated from the supplied width, \nmatching the aspect ratio of the source image.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "aspectRatio",
+                "description": "If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed. \nIf neither width or height is provided, height will be set based on the intrinsic width of the source image.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Float",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -5381,7 +5371,7 @@
                   "name": "ImagePlaceholder",
                   "ofType": null
                 },
-                "defaultValue": "BLURRED"
+                "defaultValue": "DOMINANT_COLOR"
               },
               {
                 "name": "blurredOptions",
@@ -5395,7 +5385,7 @@
               },
               {
                 "name": "tracedSVGOptions",
-                "description": "Options for traced placeholder SVGs. You also should set placeholder to \"SVG\".",
+                "description": "Options for traced placeholder SVGs. You also should set placeholder to \"TRACED_SVG\".",
                 "type": {
                   "kind": "INPUT_OBJECT",
                   "name": "Potrace",
@@ -5405,7 +5395,7 @@
               },
               {
                 "name": "formats",
-                "description": "The image formats to generate. Valid values are \"AUTO\" (meaning the same format as the source image), \"JPG\", \"PNG\" and \"WEBP\". \nThe default value is [AUTO, WEBP], and you should rarely need to change this. Take care if you specify JPG or PNG when you do\nnot know the formats of the source images, as this could lead to unwanted results such as converting JPEGs to PNGs. Specifying \nboth PNG and JPG is not supported and will be ignored.",
+                "description": "The image formats to generate. Valid values are \"AUTO\" (meaning the same format as the source image), \"JPG\", \"PNG\", \"WEBP\" and \"AVIF\". \nThe default value is [AUTO, WEBP], and you should rarely need to change this. Take care if you specify JPG or PNG when you do\nnot know the formats of the source images, as this could lead to unwanted results such as converting JPEGs to PNGs. Specifying \nboth PNG and JPG is not supported and will be ignored.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -5419,7 +5409,7 @@
               },
               {
                 "name": "outputPixelDensities",
-                "description": "A list of image pixel densities to generate. It will never generate images larger than the source, and will always include a 1x image. \nDefault is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide",
+                "description": "A list of image pixel densities to generate. It will never generate images larger than the source, and will always include a 1x image. \nDefault is [ 1, 2 ] for FIXED images, meaning 1x and 2x and [0.25, 0.5, 1, 2] for CONSTRAINED. In this case, an image with a constrained layout \nand width = 400 would generate images at 100, 200, 400 and 800px wide. Ignored for FULL_WIDTH images, which use breakpoints instead",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -5432,18 +5422,32 @@
                 "defaultValue": null
               },
               {
+                "name": "breakpoints",
+                "description": "Specifies the image widths to generate. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,\nbased on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].\nIt will never generate any images larger than the source.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "sizes",
-                "description": "The \"sizes\" property, passed to the img tag. This describes the display size of the image. \nThis does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image\ncontainer will be the full width of the screen. In these cases we will generate an appropriate value.",
+                "description": "The \"sizes\" property, passed to the img tag. This describes the display size of the image. \nThis does not affect the generated images, but is used by the browser to decide which images to download. \nYou should usually leave this blank, and a suitable value will be calculated. The exception is if a FULL_WIDTH image\ndoes not actually span the full width of the screen, in which case you should pass the correct size here.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
                 },
-                "defaultValue": "\"\""
+                "defaultValue": null
               },
               {
                 "name": "quality",
-                "description": "The default quality. This is overriden by any format-specific options",
+                "description": "The default quality. This is overridden by any format-specific options",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Int",
@@ -6848,7 +6852,7 @@
             "deprecationReason": null
           },
           {
-            "name": "FLUID",
+            "name": "FULL_WIDTH",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -14787,16 +14791,6 @@
             "defaultValue": null
           },
           {
-            "name": "domains",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "pathCheck",
             "description": "",
             "type": {
@@ -16002,22 +15996,6 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "SitePluginPluginOptionsFonts",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "domains",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               }
             },
@@ -17617,12 +17595,6 @@
           },
           {
             "name": "pluginCreator___pluginOptions___fonts___weights",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___domains",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -21275,12 +21247,6 @@
           },
           {
             "name": "pluginOptions___fonts___weights",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginOptions___domains",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

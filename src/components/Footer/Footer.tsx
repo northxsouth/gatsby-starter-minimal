@@ -52,26 +52,28 @@ const Footer: React.FC<FooterProps> = () => {
               CATEGORIES
             </h2>
             <nav className="mb-10 list-none">
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  First Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Second Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Third Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Fourth Link
-                </Link>
-              </li>
+              <ul>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    First Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Second Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Third Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Fourth Link
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </div>
           <div className="w-full px-4 md:px-8 md:w-auto">
@@ -79,26 +81,28 @@ const Footer: React.FC<FooterProps> = () => {
               CATEGORIES
             </h2>
             <nav className="mb-10 list-none">
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  First Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Second Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Third Link
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-600 hover:text-gray-800" to="/">
-                  Fourth Link
-                </Link>
-              </li>
+              <ul>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    First Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Second Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Third Link
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-gray-600 hover:text-gray-800" to="/">
+                    Fourth Link
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </div>
         </div>
@@ -120,6 +124,7 @@ const Footer: React.FC<FooterProps> = () => {
             <Link
               className="text-gray-500"
               to={`https://facebook.com/${facebook.username}`}
+              title="Facebook"
             >
               <svg
                 fill="currentColor"
@@ -135,6 +140,7 @@ const Footer: React.FC<FooterProps> = () => {
             <Link
               className="ml-3 text-gray-500"
               to={`https://twitter.com/${twitter.username}`}
+              title="Twitter"
             >
               <svg
                 fill="currentColor"
@@ -150,6 +156,7 @@ const Footer: React.FC<FooterProps> = () => {
             <Link
               className="ml-3 text-gray-500"
               to={`https://instagram.com/${instagram.username}`}
+              title="Instagram"
             >
               <svg
                 fill="none"
