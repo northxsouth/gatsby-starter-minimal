@@ -1849,7 +1849,6 @@ enum SiteFieldsEnum {
   flags___FAST_REFRESH
   flags___PRESERVE_FILE_DOWNLOAD_CACHE
   flags___PRESERVE_WEBPACK_CACHE
-  flags___DEV_SSR
   polyfill
   id
   parent___id
@@ -1957,14 +1956,12 @@ type SiteFlags {
   FAST_REFRESH: Boolean
   PRESERVE_FILE_DOWNLOAD_CACHE: Boolean
   PRESERVE_WEBPACK_CACHE: Boolean
-  DEV_SSR: Boolean
 }
 
 input SiteFlagsFilterInput {
   FAST_REFRESH: BooleanQueryOperatorInput
   PRESERVE_FILE_DOWNLOAD_CACHE: BooleanQueryOperatorInput
   PRESERVE_WEBPACK_CACHE: BooleanQueryOperatorInput
-  DEV_SSR: BooleanQueryOperatorInput
 }
 
 type SiteGroupConnection {

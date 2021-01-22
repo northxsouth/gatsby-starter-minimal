@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { useSiteMetadata, useSocialQuery } from '../../hooks';
+import { SlimContainer } from '../Container';
 import { Link } from '../Link';
 
 interface FooterProps {}
@@ -22,7 +23,7 @@ const Footer: React.FC<FooterProps> = () => {
   } = data;
   return (
     <footer className="text-gray-700 body-font">
-      <div className="container flex flex-col flex-wrap px-4 py-12 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+      <SlimContainer className="flex flex-col flex-wrap py-10 md:items-center lg:items-start md:flex-row md:flex-no-wrap">
         <div className="flex-shrink-0 mx-auto text-center md:w-64 md:mx-0 md:text-left">
           <Link
             className="inline-flex items-center justify-center font-medium text-left text-gray-900 md:justify-start"
@@ -106,9 +107,9 @@ const Footer: React.FC<FooterProps> = () => {
             </nav>
           </div>
         </div>
-      </div>
+      </SlimContainer>
       <div className="bg-blueGray-100">
-        <div className="container flex flex-col flex-wrap px-4 py-4 mx-auto sm:flex-row">
+        <SlimContainer className="flex flex-col flex-wrap py-5 sm:flex-row">
           <p className="text-sm text-center text-gray-500 sm:text-left">
             © {buildYear} {title} —
             <Link
@@ -172,7 +173,7 @@ const Footer: React.FC<FooterProps> = () => {
               </svg>
             </Link>
           </span>
-        </div>
+        </SlimContainer>
       </div>
     </footer>
   );

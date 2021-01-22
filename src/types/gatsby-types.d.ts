@@ -1977,7 +1977,6 @@ enum SiteFieldsEnum {
   flags___FAST_REFRESH = 'flags.FAST_REFRESH',
   flags___PRESERVE_FILE_DOWNLOAD_CACHE = 'flags.PRESERVE_FILE_DOWNLOAD_CACHE',
   flags___PRESERVE_WEBPACK_CACHE = 'flags.PRESERVE_WEBPACK_CACHE',
-  flags___DEV_SSR = 'flags.DEV_SSR',
   polyfill = 'polyfill',
   id = 'id',
   parent___id = 'parent.id',
@@ -2085,14 +2084,12 @@ type SiteFlags = {
   readonly FAST_REFRESH: Maybe<Scalars['Boolean']>;
   readonly PRESERVE_FILE_DOWNLOAD_CACHE: Maybe<Scalars['Boolean']>;
   readonly PRESERVE_WEBPACK_CACHE: Maybe<Scalars['Boolean']>;
-  readonly DEV_SSR: Maybe<Scalars['Boolean']>;
 };
 
 type SiteFlagsFilterInput = {
   readonly FAST_REFRESH: Maybe<BooleanQueryOperatorInput>;
   readonly PRESERVE_FILE_DOWNLOAD_CACHE: Maybe<BooleanQueryOperatorInput>;
   readonly PRESERVE_WEBPACK_CACHE: Maybe<BooleanQueryOperatorInput>;
-  readonly DEV_SSR: Maybe<BooleanQueryOperatorInput>;
 };
 
 type SiteGroupConnection = {

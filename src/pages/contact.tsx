@@ -8,11 +8,11 @@ const ContactPage: React.FC<PageProps> = () => {
   return (
     <Layout title="Contact Us">
       <header className="my-12 mb-16">
-        <div className="container mx-auto">
+        <SlimContainer>
           <h1 className="font-semibold text-center text-gray-900 md:text-6xl sm:text-4xl">
             Get In Touch
           </h1>
-        </div>
+        </SlimContainer>
       </header>
       <section className="mb-4 text-gray-700 body-font">
         <SlimContainer>

@@ -4,12 +4,12 @@ import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { Layout } from '../components/Layout';
 import { Link } from '../components/Link';
 import { Testimonial } from '../components/Testimonial';
-import { Container, FullWidthContainer } from '../components/Container';
+import { SlimContainer } from '../components/Container';
 
 const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
   <Layout>
     <section id="hero" className="text-gray-700">
-      <div className="container flex flex-col items-center px-4 py-6 mx-auto sm:py-12 md:py-24 md:flex-row">
+      <SlimContainer className="flex flex-col items-center sm:py-12 md:py-24 md:flex-row">
         <div className="flex flex-col items-center mb-12 text-center md:mb-16 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
           <h1 className="mb-4 font-medium leading-tight text-gray-900 lg:text-6xl sm:text-4xl">
             {data.site.siteMetadata.titleShort}
@@ -42,11 +42,11 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
             className="object-cover object-center w-full h-full rounded shadow"
           />
         </div>
-      </div>
+      </SlimContainer>
     </section>
 
     <section id="testimonials">
-      <Container className="py-24">
+      <SlimContainer className="py-24">
         <div className="grid justify-between grid-cols-1 gap-6 lg:grid-cols-2">
           <Testimonial
             name="Rainbow Mint"
@@ -59,11 +59,11 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
             text="Persimmon dark brown, silver purple. Rainbow purple mint, pink pastel black. Aqua rose vivid chocolate, light beige purple, violet green orange gradient."
           />
         </div>
-      </Container>
+      </SlimContainer>
     </section>
 
     <section id="cta">
-      <Container className="py-24">
+      <SlimContainer className="py-24">
         <div className="flex flex-col items-start mx-auto lg:w-2/3 sm:flex-row sm:items-center">
           <h1 className="flex-grow text-2xl font-medium text-gray-900 sm:pr-16">
             Brown indigo dark, peach chocolate vermillion red-violet, ivory
@@ -76,7 +76,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
             Get in touch
           </Link>
         </div>
-      </Container>
+      </SlimContainer>
     </section>
   </Layout>
 );

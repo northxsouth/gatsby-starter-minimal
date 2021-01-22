@@ -13,7 +13,7 @@ const SlimContainer: React.FC<SlimContainerProps> = ({
   ...rest
 }) => {
   const classes = classNames(
-    'container lg:w-4/6',
+    'container lg:max-w-6xl',
     { 'mx-auto': centered },
     className,
   );

@@ -11,11 +11,7 @@ const Container: React.FC<ContainerProps> = ({
   centered = true,
   ...rest
 }) => {
-  const classes = classNames(
-    'container px-5',
-    { 'mx-auto': centered },
-    className,
-  );
+  const classes = classNames('container', { 'mx-auto': centered }, className);
   return (
     <div className={classes} {...rest}>
       {children}

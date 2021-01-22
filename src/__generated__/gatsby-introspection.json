@@ -12677,16 +12677,6 @@
               "ofType": null
             },
             "defaultValue": null
-          },
-          {
-            "name": "DEV_SSR",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -13178,18 +13168,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "DEV_SSR",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -13469,12 +13447,6 @@
           },
           {
             "name": "flags___PRESERVE_WEBPACK_CACHE",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "flags___DEV_SSR",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

@@ -10,7 +10,7 @@ const AboutPage: React.FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({
 }) => (
   <Layout title="About">
     <section className="text-gray-700 body-font">
-      <SlimContainer className="flex flex-col px-4 py-12 mx-auto md:py-24">
+      <SlimContainer className="flex flex-col py-10 mx-auto md:py-20">
         <div className="h-64 overflow-hidden rounded-lg shadow">
           <Img
             image={data.headerImage.childImageSharp.gatsbyImageData}

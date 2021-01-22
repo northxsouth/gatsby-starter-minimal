@@ -65,6 +65,12 @@ const theme = {
       DEFAULT: '#eeeef0',
     },
   },
+  container: {
+    padding: {
+      DEFAULT: '1rem',
+      md: '2rem',
+    },
+  },
 };
 
 const variants = {
