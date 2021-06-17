@@ -23,7 +23,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
           </p>
           <div className="space-x-2">
             <Button size="lg">Button</Button>
-            <Button size="sm" theme="secondary">
+            <Button size="lg" theme="secondary">
               Button
             </Button>
           </div>
