@@ -63,9 +63,11 @@
     "start": "yarn dev",
     "build": "yarn tailwind:export && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "tailwind:export": "tailwindcss-export-config --config=./tailwind.config.js --destination=./src/assets/style/_tailwindvars  --format=scss --quoted-keys=true && prettier src/assets/style/_tailwindvars.scss -w",
-    "dev": "yarn tailwind:export && ENABLE_GATSBY_REFRESH_ENDPOINT=1 gatsby develop",
+    "dev": "INTERNAL_STATUS_PORT=25252 ENABLE_GATSBY_REFRESH_ENDPOINT=1 gatsby develop",
     "lint": "eslint src/**/* --fix --ext .ts,.tsx",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "gatsby clean"
+    "test": "jest --passWithNoTests",
+    "clean": "gatsby clean",
+    "postinstall": "yarn tailwind:export"
+
   }
 }

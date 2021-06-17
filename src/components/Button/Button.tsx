@@ -7,9 +7,12 @@ interface ButtonProps
     HTMLButtonElement
   > {
   /**
-   * @defaultValue: primary
+   * @default primary
    */
   theme?: 'primary' | 'secondary';
+  /**
+   * @default sm
+   */
   size?: 'sm' | 'lg';
 }
 

@@ -34,5 +34,9 @@
   "tailwindCSS.experimental.classRegex": [
     ["classNames\\(([^)]*)\\)", "'([^']*)'", "\"([^']*)\""],
     ["clsx\\(([^)]*)\\)", "'([^']*)'", "\"([^']*)\""]
+  ],
+  "remote.SSH.defaultForwardedPorts": [
+    {"localPort": 8000, "remotePort": 8000, "name": "Gatsby"},
+    {"localPort": 25252, "remotePort": 25252, "name": "Gatsby Status Port"}
   ]
 }
