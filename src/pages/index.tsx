@@ -33,6 +33,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
             image={data.headerImage.childImageSharp.gatsbyImageData}
             alt="Abstract image by Gradienta on Unsplash"
             className="object-cover object-center w-full h-full rounded shadow"
+            loading="eager"
           />
         </div>
       </SlimContainer>
@@ -92,10 +93,11 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          layout: FULL_WIDTH
+          layout: FIXED
           quality: 70
-          placeholder: BLURRED
-          height: 500
+          height: 350
+          width: 512
+          placeholder: NONE
         )
       }
     }
