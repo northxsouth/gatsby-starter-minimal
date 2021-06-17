@@ -8,12 +8,11 @@
     "jest": true
   },
   "extends": [
-    "airbnb-typescript",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
   ],
   "settings": {
     "react": {
@@ -45,7 +44,6 @@
     "jsx-a11y/click-events-have-key-events": "warn",
     "react/button-has-type": "warn",
     "jsx-a11y/no-static-element-interactions": "warn",
-    "jsx-a11y/label-has-associated-control": "warn",
     "react/no-unescaped-entities": "off",
     "import/no-extraneous-dependencies": [
       "error",
@@ -53,21 +51,32 @@
         "devDependencies": [
           "**/*.test{.ts,.tsx}",
           "**/*.spec{.ts,.tsx}",
-          "**/gatsby*{.ts,.tsx}"
+          "**/gatsby*{.ts,.tsx}",
+          "scripts/**/*{.ts,.tsx}"
         ]
       }
     ],
     "import/prefer-default-export": "off",
+    "@typescript-eslint/interface-name-prefix": [
+      "off",
+      {
+        "prefixWithI": "always"
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "class-methods-use-this": "warn",
     "@typescript-eslint/no-useless-constructor": "off",
     "react/jsx-key": "warn",
     "@typescript-eslint/no-empty-interface": "warn",
-    "graphql/template-strings": ["error", {
-      "env": "relay",
-      "tagName": "graphql",
-      "schemaJsonFilepath": "src/__generated__/gatsby-introspection.json"
-    }]
+    "graphql/template-strings": [
+      "error",
+      {
+        "env": "relay",
+        "tagName": "graphql",
+        "schemaJsonFilepath": "src/__generated__/gatsby-introspection.json"
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": "warn"
   }
 }

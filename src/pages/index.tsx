@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout';
 import { Link } from '../components/Link';
 import { Testimonial } from '../components/Testimonial';
 import { SlimContainer } from '../components/Container';
+import { Button } from '../components/Button';
 
 const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
   <Layout>
@@ -20,19 +21,11 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
             concrete color. Gradient rainbow teal color, neon chroma pastel
             orange mint. Color light, orange purple teal.
           </p>
-          <div className="flex justify-center">
-            <button
-              className="inline-flex px-6 py-2 text-lg text-white border-0 rounded bg-primary-500 focus:outline-none hover:bg-primary-600"
-              type="button"
-            >
+          <div className="space-x-2">
+            <Button size="lg">Button</Button>
+            <Button size="sm" theme="secondary">
               Button
-            </button>
-            <button
-              className="inline-flex px-6 py-2 ml-4 text-lg text-gray-700 bg-gray-200 border-0 rounded focus:outline-none hover:bg-gray-300"
-              type="button"
-            >
-              Button
-            </button>
+            </Button>
           </div>
         </div>
         <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">

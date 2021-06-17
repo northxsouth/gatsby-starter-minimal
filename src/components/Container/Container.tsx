@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   centered?: boolean;
@@ -11,7 +11,7 @@ const Container: React.FC<ContainerProps> = ({
   centered = true,
   ...rest
 }) => {
-  const classes = classNames('container', { 'mx-auto': centered }, className);
+  const classes = clsx('container', { 'mx-auto': centered }, className);
   return (
     <div className={classes} {...rest}>
       {children}

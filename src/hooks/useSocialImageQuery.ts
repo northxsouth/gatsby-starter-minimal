@@ -1,16 +1,15 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
 
 export const useSocialImageQuery = (): string => {
   const data = useStaticQuery<GatsbyTypes.SocialImageQueryQuery>(graphql`
     query SocialImageQuery {
       socialImage: file(relativePath: { eq: "social-image.jpg" }) {
         childImageSharp {
-          fluid(maxHeight: 630) {
-            src
-          }
+          gatsbyImageData(height: 630, quality: 100)
         }
       }
     }
   `);
-  return data.socialImage.childImageSharp.fluid.src;
+  return getSrc(data.socialImage.childImageSharp.gatsbyImageData);
 };

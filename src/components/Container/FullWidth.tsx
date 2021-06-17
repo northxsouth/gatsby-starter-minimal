@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 export type FullWidthContainerProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -8,7 +8,7 @@ const FullWidthContainer: React.FC<FullWidthContainerProps> = ({
   className,
   ...rest
 }) => {
-  const classes = classNames('w-full', className);
+  const classes = clsx('w-full', className);
   return (
     <div className={classes} {...rest}>
       {children}

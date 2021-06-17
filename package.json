@@ -1,29 +1,24 @@
 {
   "name": "@northxsouth/gatsby-starter-minimal",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
-  "resolutions": {
-    "graphql": "14.7.0"
-  },
   "dependencies": {
     "@reach/router": "^1.3.4",
-    "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
-    "gatsby": "^2.31.0",
-    "gatsby-plugin-image": "^0.6.0",
-    "lodash": "4.17.20",
+    "clsx": "^1.1.1",
+    "dotenv": "^10.0.0",
+    "gatsby": "^3.7.2",
+    "gatsby-plugin-image": "^1.7.1",
+    "lodash": "4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-hotkeys-hook": "^3.0.3",
-    "regenerator-runtime": "^0.13.7"
+    "react-hotkeys-hook": "^3.0.3"
   },
   "devDependencies": {
-    "@northxsouth/gatsby-plugin-google-fonts": "^0.0.9",
-    "@types/classnames": "^2.2.11",
+    "@northxsouth/gatsby-plugin-google-fonts": "^0.10.3",
     "@types/jest": "^26.0.20",
     "@types/lodash": "^4.14.168",
-    "@types/node": "^14.14.22",
+    "@types/node": "^15.12.2",
     "@types/reach__router": "^1.3.6",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
@@ -31,46 +26,39 @@
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.0.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gatsby-plugin-catch-links": "^2.9.0",
-    "gatsby-plugin-feed": "^2.12.0",
-    "gatsby-plugin-google-analytics": "^2.10.0",
-    "gatsby-plugin-manifest": "^2.11.0",
-    "gatsby-plugin-netlify": "^2.10.0",
-    "gatsby-plugin-postcss": "^3.6.0",
-    "gatsby-plugin-preload-fonts": "^1.8.0",
-    "gatsby-plugin-react-helmet": "^3.9.0",
-    "gatsby-plugin-sass": "^3.1.0",
-    "gatsby-plugin-sharp": "^2.13.0",
-    "gatsby-plugin-sitemap": "^2.11.0",
+    "gatsby-plugin-catch-links": "^3.7.1",
+    "gatsby-plugin-google-gtag": "^3.7.1",
+    "gatsby-plugin-manifest": "^3.7.1",
+    "gatsby-plugin-netlify": "^3.7.1",
+    "gatsby-plugin-postcss": "^4.7.1",
+    "gatsby-plugin-preconnect": "^1.2.0",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-sass": "^4.7.1",
+    "gatsby-plugin-sharp": "^3.7.1",
+    "gatsby-plugin-sitemap": "^4.3.1",
     "gatsby-plugin-ts-config": "^1.1.5",
     "gatsby-plugin-typegen": "^2.2.2",
-    "gatsby-plugin-typescript": "^2.11.0",
-    "gatsby-source-filesystem": "^2.10.0",
-    "gatsby-transformer-sharp": "^2.11.0",
-    "husky": "^4.3.8",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.5.3",
+    "gatsby-plugin-typescript": "^3.7.1",
+    "gatsby-source-filesystem": "^3.7.1",
+    "gatsby-transformer-sharp": "^3.7.1",
+    "jest": "^27.0.4",
     "postcss": "^8.2.4",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "sass": "^1.32.4",
     "tailwindcss": "^2.0.2",
     "tailwindcss-export-config": "^2.3.0",
-    "ts-jest": "^26.4.4",
+    "ts-jest": "^27.0.3",
     "typescript": "^4.1.3"
   },
   "license": "MIT",
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint"
-    ]
-  },
   "scripts": {
     "start": "yarn dev",
     "build": "yarn tailwind:export && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
@@ -78,12 +66,6 @@
     "dev": "yarn tailwind:export && ENABLE_GATSBY_REFRESH_ENDPOINT=1 gatsby develop",
     "lint": "eslint src/**/* --fix --ext .ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preload-fonts": "gatsby-preload-fonts",
     "clean": "gatsby clean"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 export interface SlimContainerProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,7 +12,7 @@ const SlimContainer: React.FC<SlimContainerProps> = ({
   centered = true,
   ...rest
 }) => {
-  const classes = classNames(
+  const classes = clsx(
     'container lg:max-w-6xl',
     { 'mx-auto': centered },
     className,

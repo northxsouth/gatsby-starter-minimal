@@ -4,9 +4,9 @@
 
 # What's in the box
 
-- [Yarn 2.x (berry)](https://github.com/yarnpkg/berry)
+- Yarn
 - Typescript! Graphql!
-- Tailwind
+- Tailwind 2.x
 - SASS/SCSS
 - Tailwind -> SASS vars
 - Gatsby / React

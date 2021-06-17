@@ -1,13 +1,80 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { PluginRef } from 'gatsby';
 import dotenv from 'dotenv';
-import { GatsbyConfig } from 'gatsby';
+import type { PluginOptions as TypegenPluginOptions } from 'gatsby-plugin-typegen/types';
+
 import pkg from '../package.json';
 
 dotenv.config();
 
 const { CONTEXT, DEPLOY_PRIME_URL, GATSBY_ACTIVE_ENV, NODE_ENV } = process.env;
-const BUILD_CONTEXT = GATSBY_ACTIVE_ENV || NODE_ENV || CONTEXT || 'development';
+export const BUILD_CONTEXT =
+  GATSBY_ACTIVE_ENV || NODE_ENV || CONTEXT || 'development';
 
 console.log('Using environment config', { BUILD_CONTEXT });
+
+interface ManifestPluginOptions {
+  name: string;
+  short_name?: string;
+  start_url: string;
+  background_color: string;
+  theme_color: string;
+  display: string;
+  description?: string;
+  icon: string;
+  icons?: {
+    src: string;
+    sizes: string;
+    type: string;
+  }[];
+  include_favicon?: boolean;
+  icon_options?: {
+    purpose?: string;
+  };
+}
+
+interface GoogleFontPluginOption {
+  family: string;
+  variable?: boolean;
+  weights: string | string[];
+}
+
+interface GTagPluginOptions {
+  trackingIds?: string[];
+  gtagConfig?: GtagConfig;
+  pluginConfig?: PluginConfig;
+}
+
+interface GtagConfig {
+  optimize_id?: string;
+  anonymize_ip?: boolean;
+  cookie_expires?: number;
+}
+
+interface PluginConfig {
+  head?: boolean;
+  respectDNT?: boolean;
+  exclude?: string[];
+}
+
+interface PreconnectDomain {
+  domain: string;
+  crossOrigin?: boolean | 'anonymous' | 'use-credentials';
+}
+
+interface PreconnectOptions {
+  domains: PreconnectDomain[] | string[];
+}
+export type Plugin =
+  | PluginRef
+  | { resolve: 'gatsby-plugin-typegen'; options: TypegenPluginOptions }
+  | { resolve: 'gatsby-plugin-manifest'; options: ManifestPluginOptions }
+  | {
+      resolve: '@northxsouth/gatsby-plugin-google-fonts';
+      options: GoogleFontPluginOption;
+    }
+  | { resolve: 'gatsby-plugin-google-gtag'; options: GTagPluginOptions }
+  | { resolve: 'gatsby-plugin-preconnect'; options: PreconnectOptions };
 
 // BEGIN CONFIG HERE
 
@@ -44,9 +111,9 @@ const social = {
 const language = 'en';
 
 const siteMetadata = {
-  title: 'Gatsby Starter: Tailwind & TS', // Site title.
-  titleShort: 'Tailwind & TS Starter', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  description: 'Starter Gatsby application', // Website description used for RSS feeds/meta description tag.
+  title: 'Gatsby Starter Minimal', // Site title.
+  titleShort: 'Gatsby Starter', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  description: 'A minimal gatsby starter template', // Website description used for RSS feeds/meta description tag.
   pathPrefix,
   siteUrl: baseUrl,
   buildContext: BUILD_CONTEXT,
@@ -55,27 +122,32 @@ const siteMetadata = {
   language,
 };
 
-const googleAnalytics = {
-  trackingId: process.env.GOOGLE_ANALYTICS_ID,
-  anonymize: true,
-  respectDNT: true,
+const gtagOptions: GTagPluginOptions = {
+  trackingIds: [process.env.GTAG_ID],
+  gtagConfig: {
+    anonymize_ip: true,
+  },
+  pluginConfig: {
+    head: true,
+    respectDNT: true,
+  },
 };
 
-const manifestOptions = {
+const manifestOptions: ManifestPluginOptions = {
   name: siteMetadata.title,
   short_name: siteMetadata.titleShort,
   description: siteMetadata.description,
-  homepage_url: baseUrl,
   start_url: pathPrefix,
   background_color: '#fff',
   theme_color: '#48695f',
+  display: 'standalone',
   icon: 'src/assets/images/favicon.svg',
   icon_options: {
     purpose: 'maskable',
   },
 };
 
-const googleFonts = [
+const googleFonts: GoogleFontPluginOption[] = [
   {
     family: 'Work Sans',
     variable: true,
@@ -83,12 +155,17 @@ const googleFonts = [
   },
 ];
 
+const preconnectOptions: PreconnectOptions = {
+  domains: ['https://fonts.googleapis.com'],
+};
+
 export {
   baseUrl,
   siteMetadata,
   pathPrefix,
-  googleAnalytics,
+  gtagOptions,
   social,
   manifestOptions,
   googleFonts,
+  preconnectOptions,
 };
