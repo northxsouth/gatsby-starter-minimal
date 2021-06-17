@@ -3044,43 +3044,35 @@ type SiteBuildMetadataSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
+
 type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
-
-type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'language'>
-      & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
-    )> }> };
-
-type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
 
 type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
 
-type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
+type AboutPageQuery = { readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
 
 type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type HomepageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'titleShort' | 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
 
-type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutPageQuery = { readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
+type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3112,5 +3104,13 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'language'>
+      & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
+    )> }> };
 
 }
